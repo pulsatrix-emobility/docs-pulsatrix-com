@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{75:function(o){o.exports=JSON.parse('{"allTagsPath":"/docs-pulsatrix-com/blog/tags","slug":"hola","name":"hola","count":1,"permalink":"/docs-pulsatrix-com/blog/tags/hola"}')}}]);
