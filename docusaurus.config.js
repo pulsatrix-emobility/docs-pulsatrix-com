@@ -2,7 +2,7 @@ module.exports = {
   title: 'pulsatrix documentation',
   tagline: 'Documentation for the pulsatrix e-mobility components',
   url: 'https://pulsatrix-emobility.github.io/docs-pulsatrix-com/',
-  baseUrl: '/docs-pulsatrix-com/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
