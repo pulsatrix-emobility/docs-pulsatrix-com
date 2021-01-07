@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{84:function(o){o.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Welcome","permalink":"/docs-pulsatrix-com/blog/welcome"},{"title":"Hello","permalink":"/docs-pulsatrix-com/blog/hello-world"},{"title":"Hola","permalink":"/docs-pulsatrix-com/blog/hola"}]}')}}]);

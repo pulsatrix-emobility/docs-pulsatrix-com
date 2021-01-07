@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{78:function(o){o.exports=JSON.parse('{"allTagsPath":"/docs-pulsatrix-com/blog/tags","slug":"facebook","name":"facebook","count":1,"permalink":"/docs-pulsatrix-com/blog/tags/facebook"}')}}]);
