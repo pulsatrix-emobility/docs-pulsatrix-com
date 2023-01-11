@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_pulsatrix_com=self.webpackChunkdocs_pulsatrix_com||[]).push([[1026],{8769:o=>{o.exports=JSON.parse('{"permalink":"/docs-pulsatrix-com/blog/tags/hello","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

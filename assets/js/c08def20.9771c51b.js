@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs_pulsatrix_com=self.webpackChunkdocs_pulsatrix_com||[]).push([[6811],{2811:s=>{s.exports=JSON.parse('{"label":"docusaurus","permalink":"/docs-pulsatrix-com/blog/tags/docusaurus","allTagsPath":"/docs-pulsatrix-com/blog/tags","count":4}')}}]);
