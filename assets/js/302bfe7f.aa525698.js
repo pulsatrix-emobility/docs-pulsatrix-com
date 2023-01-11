@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs_pulsatrix_com=self.webpackChunkdocs_pulsatrix_com||[]).push([[7828],{6734:s=>{s.exports=JSON.parse('{"label":"facebook","permalink":"/docs-pulsatrix-com/blog/tags/facebook","allTagsPath":"/docs-pulsatrix-com/blog/tags","count":1}')}}]);
