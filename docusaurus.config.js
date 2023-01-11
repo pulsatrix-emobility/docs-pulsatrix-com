@@ -9,7 +9,7 @@ const config = {
   title: 'pulsatrix documentation',
   tagline: 'Documentation for the pulsatrix e-mobility components',
   url: 'https://pulsatrix-emobility.github.io',
-  baseUrl: '/docs-pulsatrix-com/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
