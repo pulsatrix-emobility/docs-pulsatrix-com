@@ -1,0 +1,35 @@
+---
+slug: /user-api/v1-transaction
+---
+
+# /v1/transaction
+
+- `state`
+- `startedTime`
+- `endedTime`
+- `meterStart`
+- `meterStop`
+- `vehicleStatus`
+- `chargeControllerStatus`
+- `usedPhasesSession`
+- `startReason`
+- `stopReason`
+- `allocationSourceName`
+
+## Example Request
+
+```json title="/api/v1/transaction"
+{
+  "state": "Idle",
+  "startedTime": 1699359776,
+  "endedTime": 1699359816,
+  "meterStart": 0.302999973,
+  "meterStop": 0.302999973,
+  "vehicleStatus": "A1",
+  "chargeControllerStatus": "A",
+  "usedPhasesSession": "111",
+  "startReason": "Authorized",
+  "stopReason": "DeAuthorized",
+  "allocationSourceName": "OCPP Profile"
+}
+```

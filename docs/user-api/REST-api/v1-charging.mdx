@@ -1,0 +1,41 @@
+---
+slug: /user-api/v1-charging
+
+---
+
+# /v1/charging
+
+
+- `voltage`
+- `amperage`
+- `allocatedAmperage`
+- `commandedAmperage`
+- `availableAmperage`
+- `signaledAmperage`
+- `frequency`
+- `energyImported`
+- `lastActivePower`
+
+## Example Request
+
+```json title="/api/v1/charging"
+{
+  "voltage": [
+    234.1605072,
+    234.0818024,
+    234.2052612
+  ],
+  "amperage": [
+    8.13,
+    8.2,
+    8.09
+  ],
+  "allocatedAmperage": 16,
+  "commandedAmperage": 0,
+  "availableAmperage": 18,
+  "signaledAmperage": 18,
+  "frequency": 49.930336,
+  "energyImported": 0.307999998,
+  "lastActivePower": 2036.600098
+}
+```

@@ -1,0 +1,19 @@
+---
+slug: /user-api/v1-configuration
+---
+
+# /v1/configuration
+
+the configuration endpoint is used to get the session specific configuration of the charging station with the following parameters:
+
+- `sessionId`
+- `effectiveAmperageLimit`
+
+## Example Request
+
+```json title="/api/v1/transaction"
+{
+  "session-id": "018ba9bc-5ebe-b235-e5fb-dba94e99767e",
+  "effectiveAmperageLimit": 32
+}
+```
