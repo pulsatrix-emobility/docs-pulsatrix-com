@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'pulsatrix documentation',
   tagline: 'Documentation for the pulsatrix e-mobility components',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon_V3.png',
 
   // Set the production url of your site here
   url: 'https://pulsatrix-emobility.github.io',
@@ -44,14 +44,14 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -64,19 +64,18 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'pulsatrix documentation',
+        title: ' Home',
         logo: {
           alt: 'pulsatrix logo',
-          src: 'img/logo.svg',
+          src: 'img/jelly.png',
         },
         items: [
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Docs',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
             label: 'GitHub',
