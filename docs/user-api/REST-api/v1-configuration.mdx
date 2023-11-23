@@ -1,19 +1,37 @@
 ---
-slug: /user-api/v1-configuration
+title: /v1/configuration
 ---
 
-# /v1/configuration
 
-the configuration endpoint is used to get the session specific configuration of the charging station with the following parameters:
+# 
+# <span style={{ display: 'flex', alignItems: 'center' }}>/v1/configuration<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-- `sessionId`
-- `effectiveAmperageLimit`
+
+the `configuration` endpoint is used to get the session specific configuration of the charging station. The configuration can only change between sessions.
+
+## Values
+- `sessionId` - UUID of the charging session.
+- `effectiveAmperageLimit` - absolute amperage limit of the charge point ------- FIXME maybe: description -------
 
 ## Example Request
 
-```json title="/api/v1/transaction"
-{
-  "session-id": "018ba9bc-5ebe-b235-e5fb-dba94e99767e",
-  "effectiveAmperageLimit": 32
-}
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="rest" label="REST" default>
+    ``` json title="http://127.0.0.1/api/v1/configuration"
+    {
+      "session-id": "018ba9bc-5ebe-b235-e5fb-dba94e99767e",
+      "effectiveAmperageLimit": 64
+    }
+    `````
+  </TabItem>
+  <TabItem value="ws" label="WebSocket">
+    ```json title="ws://127.0.0.1:80/api/ws"
+    Topic: configuration
+
+    {"sessionId":"018ba9bc-5ebe-b235-e5fb-dba94e99767e","effectiveAmperageLimit":32}
+    ```
+  </TabItem>
+</Tabs>
