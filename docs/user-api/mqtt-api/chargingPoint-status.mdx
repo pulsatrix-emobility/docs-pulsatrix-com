@@ -1,15 +1,24 @@
 ---
-slug: /mqtt-api/chargingPoint-status
-
+title: /chargingPoint/status
 ---
+#
+# <span style={{ display: 'flex', alignItems: 'center' }}>/chargingPoint/status<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-# chargingPoint/status
 
-- `evse`
-- `connectorStatus`
+FIXME: description
+
+- `evse` FIXME: description
+  - `id` FIXME: description
+- `connectorStatus` - State of the charging connector.
+    - `Available` - When a Connector becomes available for a new User (Operative)
+    - `Occupied` - When a Connector becomes occupied, so it is not available for a new EV driver. (Operative)
+    - `Reserved` - When a Connector becomes reserved as a result of ReserveNow command (Operative)
+    - `Unavailable`- When a Connector becomes unavailable as the result of a Change Availability command or an event upon which the Charging Station transitions to unavailable at its discretion. Upon receipt of ChangeAvailability message command, the status MAY change immediately or the change MAY be scheduled. When scheduled, StatusNotification SHALL be send when the availability change becomes effective (Inoperative)
+    - `Faulted` - When a Connector (or the EVSE or the entire Charging Station it belongs to) has reported an error and is not available for energy delivery. (Inoperative).
+
 
 ## Example Request
 
-```json title="chargingPoint/status"
-
+```json title="/chargingPoint/status"
+{"evse":{"id":1},"connectorStatus":"Occupied"}
 ```

@@ -1,20 +1,57 @@
 ---
-slug: /mqtt-api/charging-status
+title: /charging/status
 ---
 
-# charging/status
+# 
+# <span style={{ display: 'flex', alignItems: 'center' }}>/charging/status<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-- `chargeControllerStatus`
-- `vehicleStatus`
-- `availableAmperage`
-- `signaledAmperage`
-- `plugRetentionLock`
-- `chargingDuration`
-- `usedPhasesSession`
-- `recentCpErrorCause`
+FIXME: Description
+
+
+- `chargeControllerStatus` State of the charge controller
+   - `Idle` - The charge point is not charging.
+   - `Charging` - The charge point is charging.
+   - `SuspendedEVSE` - The charge point is suspended by the
+   - `SuspendedEV` - The charge point is suspended by the electric vehicle.
+   - `Finishing` - The charge point is finishing a transaction.
+   - `Reserved` - The charge point is reserved and not available for charging.
+   - `Unavailable` - The charge point is not available.
+   - `Faulted` - The charge point is in an error state.
+
+- `vehicleStatus` IEC 61851 Status of the EV
+    - `A1` - Standby
+    - `B1` - Vehicle detected
+    - `C1` - Charge request
+    - `D1` - Charge & vent request
+    - `E1` - Shut off
+    - `F1` - Error
+    - `S1` - Restart after error status
+    - `R1` - Diode fail
+    - `B2` - Charging offered
+    - `C2` - Charging
+    - `D2` - Charging + venting
+
+- `availableAmperage` - FIXME: Description
+
+- `signaledAmperage` - Amperage signaled to the EV
+
+- `plugRetentionLock` - Boolean indicating if the plug is locked
+
+- `chargingDuration` - Charging duration in milliseconds
+
+- `usedPhasesSession` - Phases used in the current session
+
+- `recentCpErrorCause` - Recent control pilot error cause IEC61851
+    - `EvDisconnect` - EV unexpectedly disconnected
+    - `EvNotStopping` - EV does not stop when commanded
+    - `SignalledAmperageExceeded` - EV exceeds amperage limit
+    - `CpShortCircuit` - CP shorted
+    - `CpDiodeShortCircuit` - Diode shorted
+    - `VentilationNotAvailable` - EVSE does not support ventilation
+
 
 ## Example Request
 
-```json title="charging/status"
-
+```json title="/charging/status"
+{"chargeControllerStatus":"C2","vehicleStatus":"C","availableAmperage":10,"signaledAmperage":10,"plugRetentionLock":true,"chargingDuration":4681033,"usedPhasesSession":"111","recentCpErrorCause":"CpShortCircuit"}
 ```
