@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+
+<svg
+   version="1.1"
+   id="CLOUD_NETWORK"
+   x="0px"
+   y="0px"
+   width="800px"
+   height="800px"
+   viewBox="0 0 1800 1200"
+   enable-background="new 0 0 1800 200"
+   xml:space="preserve"
+   sodipodi:docname="rest-api.svg"
+   inkscape:version="1.3.1 (91b66b0, 2023-11-16)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+   id="defs1" /><sodipodi:namedview
+   id="namedview1"
+   pagecolor="#ffffff"
+   bordercolor="#000000"
+   borderopacity="0.25"
+   inkscape:showpageshadow="2"
+   inkscape:pageopacity="0.0"
+   inkscape:pagecheckerboard="0"
+   inkscape:deskcolor="#d1d1d1"
+   showgrid="false"
+   inkscape:zoom="1.5291184"
+   inkscape:cx="529.39"
+   inkscape:cy="259.62672"
+   inkscape:window-width="2320"
+   inkscape:window-height="1295"
+   inkscape:window-x="359"
+   inkscape:window-y="25"
+   inkscape:window-maximized="0"
+   inkscape:current-layer="CLOUD_NETWORK" />
+<path
+   fill="#26998a"
+   d="m 1112.7512,45.459975 c -137.79905,0 -224.98778,64.115005 -307.81878,172.915995 -45.162,-22.9 -95.19,-34.891 -146.321,-34.891 -139.064,0 -193.31894,85.03112 -238.14694,214.24113 -11.335,-1.191 -22.746,-1.793 -34.13,-1.793 -178.554,0 -256.12996,99.64749 -272.31575,273.78618 -16.524501,177.78269 89.34744,166.36832 267.90044,166.36832 5.393,0 10.958,-0.146 16.592,-0.436 373.56498,0.22254 588.23039,0.109 961.80083,0.109 4.988,0.22 9.674,0.326 14.307,0.326 4.782,0 9.635,-0.115 14.817,-0.348 0.079,0 0.158,-0.01 0.237,-0.01 173.133,-7.938 291.0988,7.42568 291.0988,-166.01032 0,-134.669 -59.8844,-203.41118 -183.9074,-251.66818 C 1458.4736,152.05235 1292.0079,45.459975 1112.7512,45.459975 m 0,63.012005 c 194.314,0 305.0102,142.68611 323.8312,335.80611 1.222,12.53101 9.784,23.13301 21.783,26.96101 108.539,34.626 157.036,84.46567 156.4525,198.48018 -0.5202,101.65112 -88.5189,96.57334 -227.8519,103.05634 -0.065,0 -0.127,0.005 -0.193,0.009 -8.602,0.387 -15.744,0.387 -24.311,0 -0.479,-0.021 -0.963,-0.035 -1.441,-0.035 H 405.61917 c -2.132,-0.308 -4.308,-0.391 -6.497,-0.251 -5.886,0.382 -11.67607,0.72613 -17.204,0.575 C 220.45394,768.65931 165.20312,783.48898 177.02973,669.71828 191.36559,531.80892 242.52548,458.9441 386.33248,458.9441 c 16.909,0 33.875,1.644 50.428,4.883 16.469,3.2 32.53,-7.002 36.608,-23.247 29.133,-116.00701 65.45394,-194.08313 185.24094,-194.08313 49.272,0 97.252,13.80999 138.753,39.94099 14.479,9.116 33.615,5.006 43.062,-9.279 69.877,-105.62899 145.87873,-168.68698 272.32478,-168.68698"
+   id="path1"
+   sodipodi:nodetypes="cscscssscsccscccsccscccsccsssccscc" />
+	<text
+   x="944.11578"
+   y="1167.6333"
+   text-anchor="middle"
+   fill="#2a988a"
+   font-size="334.399px"
+   font-weight="bold"
+   id="text1"
+   transform="scale(0.96503159,1.0362355)"
+   style="stroke-width:1.33759">{REST : API}</text>
+</svg>
