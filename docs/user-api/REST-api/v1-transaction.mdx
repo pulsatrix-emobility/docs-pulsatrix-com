@@ -12,7 +12,7 @@ The `transaction` endpoint returns transactional information about the charging 
 
 ## Values
 
-- `state` states a charging controller can have
+- `state` State of the charge controller
   - `Idle` - The charge point is not charging.
   - `Charging` - The charge point is charging.
   - `SuspendedEVSE` - The charge point is suspended by the 
@@ -31,29 +31,29 @@ The `transaction` endpoint returns transactional information about the charging 
 - `meterStop` value of the energyMeter at the end of the session.
 
 - `vehicleStatus` IEC 61851 Status of the EV
-  - `A1` - standby
-  - `B1` - vehicle detected
-  - `C1` - charge request
-  - `D1` - charge & vent request
-  - `E1` - shut off
-  - `F1` - error
-  - `S1` - restart after error status
-  - `R1` - diode fail
-  - `B2` - charging offered
-  - `C2`- charging
-  - `D2` - charging + venting
+  - `A1` - Standby
+  - `B1` - Vehicle detected
+  - `C1` - Charge request
+  - `D1` - Charge & vent request
+  - `E1` - Shut off
+  - `F1` - Error
+  - `S1` - Restart after error status
+  - `R1` - Diode fail
+  - `B2` - Charging offered
+  - `C2`- Charging
+  - `D2` - Charging + venting
 
 - `chargeControllerStatus` IEC 61851 Status of the SECC
-  - `A` - disconnected
-  - `B` - connected
-  - `C` - charge request
-  - `D` - charge & ventilation request
-  - `E` - short circuit
-  - `F` - error
-  - `S` - startup / unknown
-  - `R` - diode fail
+  - `A` - Disconnected
+  - `B` - Connected
+  - `C` - Charge request
+  - `D` - Charge & ventilation request
+  - `E` - Short circuit
+  - `F` - Error
+  - `S` - Startup / unknown
+  - `R` - Diode fail
 
-- `usedPhasesSession` phases used for charging the EV.
+- `usedPhasesSession` Phases used for charging the EV.
 
 - `startReason`
   - `Authorized` - Charging is authorized, by any means. Might be an RFID, or other authorization means.

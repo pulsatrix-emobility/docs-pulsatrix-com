@@ -8,17 +8,17 @@ import TabItem from '@theme/TabItem';
 #
 # <span style={{ display: 'flex', alignItems: 'center' }}>/v1/limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-the `/limits` endpoint provides controll functionality for the limits of the charger. A `GET` request returns the current values of the limits as set through the API.  
+The `/limits` endpoint provides control functionality for the limits of the charger. A `GET` request returns the current values of the limits as set through the API.  
 
 
 The limits are only active if the `enabled` value is set to `true`.  
 If you set the limits for `amperageLimit` and `powerLimit`, the lower effective value will be used.
 
 ## Values
-- `enabled` - gets or sets the enable state of the limits
-- `amperageLimit` - gets or sets the amperage limit
-- `powerLimit` - gets or sets the power limit
-- `timeout` - gets or sets the data validity timeout in ms
+- `enabled` - Gets or sets the enable state of the limits
+- `amperageLimit` - Gets or sets the amperage limit
+- `powerLimit` - Gets or sets the power limit
+- `timeout` - Gets or sets the data validity timeout in ms
 
 ## Example Request
 
@@ -48,8 +48,8 @@ If you set the limits for `amperageLimit` and `powerLimit`, the lower effective 
 
 <Tabs>
   <TabItem value="rest" label="REST" default>
-    set the request body to the desired values. If you want to change only one value, you can leave the others out.  
-    If you want to give up controll over a value, set it to `NaN`.
+    Set the request body to the desired values. If you want to change only one value, you can leave the others out.  
+    If you want to give up control over a value, set it to `NaN`.
 
 
 
@@ -63,18 +63,18 @@ If you set the limits for `amperageLimit` and `powerLimit`, the lower effective 
     `````
   </TabItem>
   <TabItem value="ws" label="WebSocket">
-    - `setEnabled` - sets the enable state of the limits
-    - `setCurrentLimit` - sets the amperage limit
-    - `setPowerLimit` - sets the power limit
-    - `setTimeout` - sets the data validity timeout
+    - `setEnabled` - Sets the enable state of the limits
+    - `setCurrentLimit` - Sets the amperage limit
+    - `setPowerLimit` - Sets the power limit
+    - `setTimeout` - Sets the data validity timeout
 
-    with Websocket it is only possible to set one value at a time.  
+    With WebSocket it is only possible to set one value at a time.  
     Use the format: `"<command>\n<value>"` to set the value.
 
-    `"setCurrentLimit\n10"` *set the amperage limit to 10A*   
-    `"setPowerLimit\n10000"` *sets the Power Limit to 10000W*  
-    `"setEnabled\ntrue"` *sets the enable state to true*  
-    `"setTimeout\n10000"` *sets the data validity timeout to 10000ms* 
+    `"setCurrentLimit\n10"` *Set the amperage limit to 10A*   
+    `"setPowerLimit\n10000"` *Sets the Power Limit to 10000W*  
+    `"setEnabled\ntrue"` *Sets the enable state to true*  
+    `"setTimeout\n10000"` *Sets the data validity timeout to 10000ms* 
 
   </TabItem>
 </Tabs>
