@@ -1,0 +1,386 @@
+openapi: 3.0.3
+info:
+  title: pulsatrix UserAPI
+  description: |
+
+  contact:
+    email: hallo@pulsatrix.de
+  version: 1.0.11
+servers:
+  - url: https://xxx/api/v1/
+tags:
+  - name: REST
+paths:
+  /configuration:
+    get:
+      tags:
+        - REST
+      summary: Returns configurational data
+      description: |
+        Returns all configurational (static) values of a charging session.  
+        Those values only change when a new charging session is started
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configuration'
+  /transaction:
+    get:
+      tags:
+        - REST
+      summary: Returns transactional data
+      description: |
+        Returns all transactional values of the charging session
+        
+        Those values change when session specific values change.  
+        e.g. the car starts charging and the vehicleStatus switches B -> C
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/transaction'
+  /charge:
+    get:
+      tags:
+        - REST
+      summary: Returns charging data
+      description: |
+        Returns all charging relevant values of the charging session
+        
+        Those values change constantly, whenever charging values change.  
+        e.g. the commanded amperage increases 6A -> 14.2A
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/charge'
+  /set:
+    put:
+      tags:
+        - REST
+      summary: Updates charging relevant data
+      description: |
+        updates charging relevant data. When setting amperageLimit and powerLimit at the same time the lower limit is used.
+      responses:
+        '204':
+          description: No Content (The server successfully processed the request, and is not returning any content.)
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/set'
+        required: true
+    get:
+      tags:
+        - REST
+      summary: Returns updated charging data
+      description: |
+        returns the charging relevant data set by the api, regardless of their validity.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/set'
+components:
+  schemas:
+    configuration:
+      type: object
+      properties:
+        session-id:
+          type: string
+          example: "018ba9bc-5ebe-b235-e5fb-dba94e99767e"
+          description: UUID of the charging session.
+        effectiveAmperageLimit:
+          type: integer
+          format: int32
+          example: 32
+          description: absolute amperage limit of the charge point
+    transaction:
+      type: object
+      properties:
+        state:
+          type: string
+          enum:
+            - Idle
+            - EVConnected
+            - SuspendedEV
+            - SuspendedEVSE
+            - Charging
+          description: |
+            states a charging controller can have
+            * `Idle`: There is no connection between EV and EVSE.
+            * `EVConnected`: There is a connection between EV and EVSE, in case the protocol used between EV and the Charging Station can detect a connection, the protocol needs to detect this for the state to become active. The connection can either be wired or wireless.
+            * `SuspendedEV`: When the EV is connected to the EVSE and the EVSE is offering energy but the EV is not taking any energy.
+            * `SuspendedEVSE`: When the EV is connected to the EVSE but the EVSE is not offering energy to the EV, e.g. due to a smart charging restriction, local supply power constraints, or when charging has stopped because of the authorization status in the response to a transactionEventRequest indicating that charging is not allowed etc.
+            * `Charging`: The contactor of the Connector is closed and energy is flowing to between EVSE and EV.
+        startedTime:
+          type: integer
+          format: int32
+          example: 1699359776
+          description: time when the charge point started charging.
+        endedTime:
+          type: integer
+          format: int32
+          example: 1699359816
+          description: time when the charge point stopped charging.
+        meterStart:
+          type: number
+          format: float32
+          example: 0.302999973
+          description: value of the energyMeter at the start of the session.
+        meterStop:
+          type: number
+          format: float32
+          example: 0.302999973
+          description: value of the energyMeter at the end of the session.
+        vehicleStatus:
+          type: string
+          enum:
+            - A1
+            - B1
+            - C1
+            - D1
+            - E1
+            - F1
+            - S1
+            - R1
+            - B2
+            - C2
+            - D2
+            - UNKNOWN
+          description: |
+            IEC 61851 Status of the EV
+            * ` A1` - standby              
+            * ` B1` - vehicle detected     
+            * ` C1` - charge request       
+            * ` D1` - charge & vent request
+            * ` E1` - shut off          
+            * ` F1` - error             
+            * ` S1` - restart after error status
+            * ` R1` - diode fail        
+            * ` B2` - charging offered  
+            * ` C2` - charging          
+            * ` D2` - charging + venting
+        chargeControllerStatus:
+          type: string
+          enum:
+            - A
+            - B
+            - C
+            - D
+            - E
+            - F
+            - S
+            - R
+          description: |
+            IEC 61851 Status of the SECC
+            * `A` - disconnected
+            * `B` - connected
+            * `C` - charge request
+            * `D` - charge & ventilation request
+            * `E` - short circuit
+            * `F` - error
+            * `S` - startup / unknown
+            * `R` - diode fail
+        usedPhasesSession:
+          type: string
+          example: "111"
+          description: phases used for charging the EV.
+        startReason:
+          type: string
+          enum:
+            - Authorized
+            - CablePluggedIn
+            - ChargingRateChanged
+            - ChargingStateChanged
+            - Deauthorized
+            - EnergyLimitReached
+            - EVCommunicationLost
+            - EVConnectTimeout
+            - MeterValueClock
+            - MeterValuePeriodic
+            - TimeLimitReached
+            - Trigger
+            - UnlockCommand
+            - StopAuthorized
+            - EVDeparted
+            - EVDetected
+            - RemoteStop
+            - RemoteStart
+            - AbnormalCondition
+            - SignedDataReceived
+            - ResetCommand
+          description: |
+            reason why a charging start is issued.
+            * `Authorized`: Charging is authorized, by any means. Might be an RFID, or other authorization means.
+            * `CablePluggedIn`: Cable is plugged in and EVDetected.
+            * `ChargingRateChanged`: Rate of charging changed by more than LimitChangeSignificance.
+            * `ChargingStateChanged`: Charging State changed.
+            * `Deauthorized`: The transaction was stopped because of the authorization status in the response to a transactionEventRequest.
+            * `EnergyLimitReached`: Maximum energy of charging reached. For example: in a pre-paid charging solution.
+            * `EVCommunicationLost`: Communication with EV lost, for example: cable disconnected.
+            * `EVConnectTimeout`: EV not connected before the connection is timed out.
+            * `MeterValueClock`: Needed to send a clock aligned meter value.
+            * `MeterValuePeriodic`: Needed to send a periodic meter value.
+            * `TimeLimitReached`: Maximum time of charging reached. For example: in a pre-paid charging solution.
+            * `Trigger`: Requested by the CSMS via a TriggerMessageRequest.
+            * `UnlockCommand`: CSMS sent an Unlock Connector command.
+            * `StopAuthorized`: An EV Driver has been authorized to stop charging. For example: By swiping an RFID card.
+            * `EVDeparted`: EV departed. For example: When a departing EV triggers a parking bay detector.
+            * `EVDetected`: EV detected. For example: When an arriving EV triggers a parking bay detector.
+            * `RemoteStop`: A RequestStopTransactionRequest has been sent.
+            * `RemoteStart`: A RequestStartTransactionRequest has been sent.
+            * `AbnormalCondition`: An Abnormal Error or Fault Condition has occurred.
+            * `SignedDataReceived`: Signed data is received from the energy meter.
+            * `ResetCommand`: CSMS sent a Reset Charging Station command.
+
+        stopReason:
+          type: string
+          enum:
+            - DeAuthorized
+            - EmergencyStop
+            - EnergyLimitReached
+            - EVDisconnected
+            - GroundFault
+            - ImmediateReset
+            - Local
+            - LocalOutOfCredit
+            - MasterPass
+            - Other
+            - OvercurrentFault
+            - PowerLoss
+            - PowerQuality
+            - Reboot
+            - Remote
+            - SOCLimitReached
+            - StoppedByEV
+            - TimeLimitReached
+            - Timeout
+          description: |
+            reason why a charging stop is issued.
+            * `DeAuthorized`: The transaction was stopped because of the authorization status in the response to a transactionEventRequest.
+            * `EmergencyStop`: Emergency stop button was used.
+            * `EnergyLimitReached`: EV charging session reached a locally enforced maximum energy transfer limit.
+            * `EVDisconnected`: Disconnecting of cable, vehicle moved away from inductive charge unit.
+            * `GroundFault`: A GroundFault has occurred.
+            * `ImmediateReset`: A Reset(Immediate) command was received.
+            * `Local`: Stopped locally on request of the EV Driver at the Charging Station. This is a regular termination of a transaction. Examples: presenting an IdToken tag, pressing a button to stop.
+            * `LocalOutOfCredit`: A local credit limit enforced through the Charging Station has been exceeded. 
+            * `MasterPass`: The transaction was stopped using a token with a MasterPassGroupId.
+            * `Other`: Any other reason.
+            * `OvercurrentFault`: A larger than intended electric current has occurred.
+            * `PowerLoss`: Complete loss of power.
+            * `PowerQuality`: Quality of power too low, e.g. voltage too low/high, phase imbalance, etc.
+            * `Reboot`: A locally initiated reset/reboot occurred. (for instance watchdog kicked in)
+            * `Remote`: Stopped remotely on request of the CSMS. This is a regular termination of a transaction.
+            * `SOCLimitReached`: Electric vehicle has reported reaching a locally enforced maximum battery State of Charge (SOC).
+            * `StoppedByEV`: The transaction was stopped by the EV.
+            * `TimeLimitReached`: EV charging session reached a locally enforced time limit.
+            * `Timeout`: EV not connected within timeout.
+        allocationSourceName:
+          type: string
+          enum:
+            - OCPP Profile
+            - API
+            - Transaction
+            - MQTT
+            - ProximityPilot
+            - Team
+            - Unmanaged
+          description: |
+            describes what is currently in controll of the charge point
+            * `OCPP Profile` 
+            * `API` 
+            * `Transaction` 
+            * `MQTT`
+            * `ProximityPilot`
+            * `Team`
+            * `Unmanaged`
+    charge:
+      type: object
+      properties:
+        voltage:
+          type: array
+          items:
+            type: number
+            format: float32
+          example: [ 234.1605072, 234.0818024, 234.2052612 ]
+          description: current per phase voltage
+        amperage:
+          type: array
+          items:
+            type: number
+            format: float32
+          example: [ 8.13, 8.2, 8.09 ]
+          description: current per phase amperage
+        allocatedAmperage:
+          type: number
+          format: float32
+          example: 16
+        commandedAmperage:
+          type: number
+          format: float32
+          example: 0
+        availableAmperage:
+          type: number
+          format: float32
+          example: 18
+        signaledAmperage:
+          type: number
+          format: float32
+          example: 18
+          description: amperage signaled to the EV
+        frequency:
+          type: number
+          format: float32
+          example: 49.930336
+          description: current grid frequency in Hz
+        energyImported:
+          type: number
+          format: float32
+          example: 0.307999998
+          description: current meter value
+        lastActivePower:
+          type: number
+          format: float32
+          example: 2036.600098
+          description: last active power of the charge point
+    set:
+      type: object
+      properties:
+        enabled:
+          type: boolean
+          description: enables/disables charging
+        amperageLimit:
+          type: number
+          minimum: 0
+          maximum: 80
+          format: float32
+          example: 15.5
+          description: |
+            sets the amperage limit (a value below 6A will be set to 0A)
+            set to NaN to signal the SECC to take controll
+        powerLimit:
+          type: number
+          minimum: 0
+          maximum: 55200
+          format: float32
+          example: 10000.0
+          description: |
+            sets the power Limit (a value below 1380W will be set to 0W)
+            set to NaN to signal the SECC to take controll
+        timeout:
+          type: number
+          minimum: 5000
+          maximum: 86400
+          format: int32
+          example: 300000
+          description: sets the time in ms when the data set by the API becomes invalid
