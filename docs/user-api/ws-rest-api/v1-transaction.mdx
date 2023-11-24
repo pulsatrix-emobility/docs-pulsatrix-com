@@ -55,7 +55,7 @@ The `transaction` endpoint returns transactional information about the charging 
 
 - `usedPhasesSession` Phases used for charging the EV.
 
-- `startReason`
+- `startReason` Reason for starting the charging session.
   - `Authorized` - Charging is authorized, by any means. Might be an RFID, or other authorization means.
   - `CablePluggedIn` - Cable is plugged in and EVDetected.
   - `ChargingRateChanged` - Rate of charging changed by more than LimitChangeSignificance.
@@ -78,7 +78,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `SignedDataReceived` - Signed data is received from the energy meter.
   - `ResetCommand` - CSMS sent a Reset Charging Station command.
 
-- `stopReason`
+- `stopReason` Reason for stopping the charging session.
   - `DeAuthorized` - The transaction was stopped because of the authorization status in the response to a transactionEventRequest.
   - `EmergencyStop` - Emergency stop button was used.
   - `EnergyLimitReached` - EV charging session reached a locally enforced maximum energy transfer limit
@@ -99,11 +99,11 @@ The `transaction` endpoint returns transactional information about the charging 
   - `TimeLimitReached` - EV charging session reached a locally enforced time limit
   - `Timeout` - EV not connected within timeout
 
-- `allocationSourceName`
-  - `OCPP Profile` - FIXME: description
-  - `API` - FIXME: description
+- `allocationSourceName` Name of the source currently in controll of the charging session.
+  - `OCPP Profile` - The OCPP profile is in controll of the charging session.
+  - `API` - The WebSocket or RESTful api is in controll of the charging session.
   - `Transaction` - FIXME: description
-  - `MQTT` - FIXME: description
+  - `MQTT` - The MQTT api is in controll of the charging session.
   - `ProximityPilot` - FIXME: description
   - `Team` - FIXME: description
   - `Unmanaged` - FIXME: description

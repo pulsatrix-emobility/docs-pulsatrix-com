@@ -25,27 +25,27 @@ const sidebars = {
             {
               type: 'doc',
               id:'user-api/mqtt-api/chargingPoint-status',
-              label: 'chargingPoint/status',
+              label: '/chargingPoint/status',
             },
             {
               type: 'doc',
               id: 'user-api/mqtt-api/charging-status',
-              label: 'charging/status',
+              label: '/charging/status',
             },
             {
               type: 'doc',
               id: 'user-api/mqtt-api/tx-status',
-              label: 'tx/status',
+              label: '/tx/status',
             },
             {
               type: 'doc',
               id: 'user-api/mqtt-api/meter-fiscal',
-              label: 'meter/fiscal',
+              label: '/meter/fiscal',
             },
             {
               type: 'doc',
               id: 'user-api/mqtt-api/meter-grid',
-              label: 'meter/grid',
+              label: '/meter/grid',
             },
           ],
         },
@@ -63,22 +63,22 @@ const sidebars = {
           items: [
             {
               type: 'doc',
-              id: 'user-api/rest-api/v1-configuration',
+              id: 'user-api/ws-rest-api/v1-configuration',
               label: '/v1/configuration',
             },
             {
               type: 'doc',
-              id: 'user-api/rest-api/v1-transaction',
+              id: 'user-api/ws-rest-api/v1-transaction',
               label: '/v1/transaction',
             },
             {
               type: 'doc',
-              id: 'user-api/rest-api/v1-charging',
+              id: 'user-api/ws-rest-api/v1-charging',
               label: '/v1/charging',
             },
             {
               type: 'doc',
-              id: 'user-api/rest-api/v1-limits',
+              id: 'user-api/ws-rest-api/v1-limits',
               label: '/v1/limits',
             },
           ],
