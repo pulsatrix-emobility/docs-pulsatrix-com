@@ -8,17 +8,7 @@ title: /charging/status
 FIXME: Description
 
 
-- `chargeControllerStatus` State of the charge controller
-   - `Idle` - The charge point is not charging.
-   - `Charging` - The charge point is charging.
-   - `SuspendedEVSE` - The charge point is suspended by the
-   - `SuspendedEV` - The charge point is suspended by the electric vehicle.
-   - `Finishing` - The charge point is finishing a transaction.
-   - `Reserved` - The charge point is reserved and not available for charging.
-   - `Unavailable` - The charge point is not available.
-   - `Faulted` - The charge point is in an error state.
-
-- `vehicleStatus` IEC 61851 Status of the EV
+- `chargeControllerStatus` IEC 61851 Status of the SECC
     - `A1` - Standby
     - `B1` - Vehicle detected
     - `C1` - Charge request
@@ -30,6 +20,16 @@ FIXME: Description
     - `B2` - Charging offered
     - `C2` - Charging
     - `D2` - Charging + venting
+
+- `vehicleStatus` IEC 61851 Status of the EV
+    - `S` - startup / unknown
+    - `A` - disconnected
+    - `B` - connected
+    - `C` - charge request
+    - `D` - charge & ventilation request
+    - `E` - short circuit
+    - `F` - error
+    - `R` - diode fail
 
 - `availableAmperage` - FIXME: Description
 
@@ -52,6 +52,17 @@ FIXME: Description
 
 ## Example Request
 
-```json title="/charging/status"
-{"chargeControllerStatus":"C2","vehicleStatus":"C","availableAmperage":10,"signaledAmperage":10,"plugRetentionLock":true,"chargingDuration":4681033,"usedPhasesSession":"111","recentCpErrorCause":"CpShortCircuit"}
+```json title="pulsatrix/secc/A0123B4567C8/charging/status"
+{
+    "chargeControllerStatus":"C2",
+    "vehicleStatus":"C",
+    "availableAmperage":10,
+    "signaledAmperage":10,
+    "plugRetentionLock":true,
+    "chargingDuration":4681033,
+    "usedPhasesSession":"111",
+    "recentCpErrorCause":"CpShortCircuit"
+}
 ```
+
+

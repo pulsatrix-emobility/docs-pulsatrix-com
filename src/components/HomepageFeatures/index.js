@@ -6,6 +6,17 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
+    title: 'Docs',
+    Svg: require('@site/static/img/docs.svg').default,
+    description: (
+      <>
+        Extend or customize your website layout by reusing React. Docusaurus can
+        be extended while reusing the same header and footer.
+      </>
+    ),
+    link: '/docs/intro',
+  },
+  {
     title: 'MQTT API',
     Svg: require('@site/static/img/mqtt-api.svg').default,
     description: (
@@ -13,7 +24,7 @@ const FeatureList = [
         The MQTT API is a simple and lightweight messaging protocol that runs over TCP/IP sockets or WebSockets.
       </>
     ),
-    link: 'docs/user-api/mqtt-api/intro',
+    link: 'docs/category/mqtt-api',
   },
   {
     title: 'REST & WebSocket API',
@@ -24,17 +35,6 @@ const FeatureList = [
       </>
     ),
     link: '/docs/category/rest--websocket-api',
-  },
-  {
-    title: 'Docs',
-    Svg: require('@site/static/img/docs.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-    link: '/docs/intro',
   },
 ];
 

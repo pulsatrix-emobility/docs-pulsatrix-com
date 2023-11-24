@@ -10,14 +10,18 @@ FIXME: description
 - `id` - UUID of the charging session.
 
 - `state` - State of the charge controller
-  - `Idle` - The charge point is not charging.
-  - `Charging` - The charge point is charging.
-  - `SuspendedEVSE` - The charge point is suspended by the 
-  - `SuspendedEV` - The charge point is suspended by the electric vehicle.
-  - `Finishing` - The charge point is finishing a transaction.
-  - `Reserved` - The charge point is reserved and not available for charging.
-  - `Unavailable` - The charge point is not available.
-  - `Faulted` - The charge point is in an error state.  
+  - `IDLE` - The charge point is not charging.
+  - `AWAITING_START` -  The EV is connected and the charge point is waiting for a start transaction.
+  - `AWAITING_AUTHORIZATION` - The EV is connected and the charge point is waiting for an authorization.
+  - `STARTING` - The EV is connected and the charge point is starting the charging session.
+  - `SUSPENDED_EVSE` - Charging is suspended by the charge point.
+  - `SUSPENDED_EV` - The charge point is suspended by the electric vehicle.
+  - `CHARGING` - The charge point is charging.
+  - `FAILED` - The charge point is in an error state.  
+  - `STOPPED` - The EV is connected and charing is stopped.
+  - `LINGERING` - The EV is currently connected or was recently connected and the charge point is still in the same transaction.
+  - `COMPLETED` - Charing is completed, EV is not connected, charge point is availabile.
+
 
 - `effectiveAmperageLimit`- EffectiveAmperageLimit - absolute amperage limit of the charge point --------- FIXME: description
 
@@ -63,6 +67,19 @@ FIXME: description
 ## Example Request
 
 
-```json title="/tx/status"
-{"id":"018bf969-e58c-1425-cf1f-6e7057e75ce6","state":"SUSPENDED_EV","effectiveAmperageLimit":32,"startedTime":1700696554,"endedTime":0,"startReason":"CablePluggedIn","energyActiveImportRegister":9750.396484,"lastActivePower":0,"meterStart":9750.060547,"meterStop":9750.060547,"peakPhaseAmperage":{},"peakActivePower":5633.716797}
+```json title="pulsatrix/secc/A0123B4567C8/tx/status"
+{
+  "id":"018bf969-e58c-1425-cf1f-6e7057e75ce6",
+  "state":"SUSPENDED_EV",
+  "effectiveAmperageLimit":32,
+  "startedTime":1700696554,
+  "endedTime":0,
+  "startReason":"CablePluggedIn",
+  "energyActiveImportRegister":9750.396484,
+  "lastActivePower":0,
+  "meterStart":9750.060547,
+  "meterStop":9750.060547,
+  "peakPhaseAmperage":{},
+  "peakActivePower":5633.716797
+}
 ```
