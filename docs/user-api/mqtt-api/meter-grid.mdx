@@ -5,15 +5,16 @@ title: /meter/grid
 # 
 # <span style={{ display: 'flex', alignItems: 'center' }}>/meter/grid<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-FIXME: description
+The grid endpoint provides meter data at the point of feed-in / building connection - the sum of all currents going into or out of the building. This contains the values of all fiscal meters.
 
-- `voltage` - Per phase charging voltage
-- `amperage` - per Phase charging current
-- `frequency` - Current grid frequency in Hz
-- `activePower` - Current active power in W
-- `energyImported` current grid meter value in KWh
 
-## Example Request
+- `voltage` - *\[float, float, float\]* - Per phase charging voltage
+- `amperage` - *\[float, float, float\]* - per Phase charging current
+- `frequency` - *float* - Current grid frequency in Hz
+- `activePower` - *float* - Current active power in W
+- `energyImported` - *float* - current grid meter value in KWh
+
+## Example Output
 
 ```json title="pulsatrix/secc/A0123B4567C8/meter/grid"
 {

@@ -7,9 +7,9 @@ title: /tx/status
 
 FIXME: description
 
-- `id` - UUID of the charging session.
+- `id` - *String* - UUID of the charging session.
 
-- `state` - State of the charge controller
+- `state` - *String* - State of the charge controller
   - `IDLE` - The charge point is not charging.
   - `AWAITING_START` -  The EV is connected and the charge point is waiting for a start transaction.
   - `AWAITING_AUTHORIZATION` - The EV is connected and the charge point is waiting for an authorization.
@@ -23,13 +23,13 @@ FIXME: description
   - `COMPLETED` - Charing is completed, EV is not connected, charge point is availabile.
 
 
-- `effectiveAmperageLimit`- EffectiveAmperageLimit - absolute amperage limit of the charge point --------- FIXME: description
+- `effectiveAmperageLimit` - *float* - EffectiveAmperageLimit - absolute amperage limit of the charge point --------- FIXME: description
 
-- `startedTime` - Time when the charge point started charging.  
+- `startedTime` - *float* - Time when the charge point started charging.  
 
-- `endedTime` - Time when the charge point stopped charging.  
+- `endedTime` - *float* - Time when the charge point stopped charging.  
 
-- `startReason` - Reason why the charging was started.
+- `startReason` - *String* - Reason why the charging was started.
   - `Authorized` - Charging is authorized, by any means. Might be an RFID, or other authorization means.
   - `CablePluggedIn` - Cable is plugged in and EVDetected.
   - `ChargingRateChanged` - Rate of charging changed by more than LimitChangeSignificance.
@@ -54,17 +54,17 @@ FIXME: description
 
 - `energyActiveImportRegister` - FIXME: description
 
-- `lastActivePower` - Current active power of the charge point.
+- `lastActivePower` - *float* - Current active power of the charge point.
 
-- `meterStart` - Value of the energyMeter at the start of the session.
+- `meterStart` - *float* - Value of the energyMeter at the start of the session.
 
-- `meterStop` - Value of the energyMeter at the end of the session.
+- `meterStop` - *float* - Value of the energyMeter at the end of the session.
 
-- `peakPhaseAmperage` - Peak amperage values for each phase of the charge point.
+- `peakPhaseAmperage` - FIXME: datatype - Peak amperage values for each phase of the charge point.
 
-- `peakActivePower` - Peak active power of the charge point.
+- `peakActivePower` - *float* - Peak active power of the charge point.
 
-## Example Request
+## Example Output
 
 
 ```json title="pulsatrix/secc/A0123B4567C8/tx/status"

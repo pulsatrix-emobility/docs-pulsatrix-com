@@ -1,0 +1,20 @@
+---
+slug: /mqtt-api
+---
+
+# MQTT API
+
+To use the MQTT API, you have to tick the checkbox enable MQTT in the configurator, and set the URI to the address of your MQTT broker. After saving the settings, you likely need to restart the SECC to make the changes take effect.
+
+**The topic is defined as follows:**  
+`<Topic-Prefix>/<Client-ID>/<Topic>`  
+
+The default `Topic-Prefix` is: `/pulsatrix/secc`  
+
+The `Client-ID` can be either found in the configurator, or on the 2nd page of the SECC display and should be an alphanumeric string of 12 characters.
+
+The `Topic` is defined by the API and is listed below.
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

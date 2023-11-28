@@ -8,8 +8,8 @@ title: /chargingPoint/status
 FIXME: description
 
 - `evse` FIXME: description
-  - `id` FIXME: description
-- `connectorStatus` - State of the charging connector.
+  - `id` ID of the charge point of SECC controller (usually always 1)
+- `connectorStatus` - *String* - State of the charging connector.
     - `Available` - When a Connector becomes available for a new User (Operative)
     - `Occupied` - When a Connector becomes occupied, so it is not available for a new EV driver. (Operative)
     - `Reserved` - When a Connector becomes reserved as a result of ReserveNow command (Operative)
@@ -17,7 +17,7 @@ FIXME: description
     - `Faulted` - When a Connector (or the EVSE or the entire Charging Station it belongs to) has reported an error and is not available for energy delivery. (Inoperative).
 
 
-## Example Request
+## Example Output
 
 ```json title="pulsatrix/secc/A0123B4567C8/chargingPoint/status"
 {

@@ -5,15 +5,15 @@ title: /meter/fiscal
 # 
 # <span style={{ display: 'flex', alignItems: 'center' }}>/meter/fiscal<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
 
-FIXME: description
+The fiscal endpoint provides meter data of the charge point.
 
-- `voltage` - Per phase charging voltage
-- `amperage` - per Phase charging current
-- `frequency` - Current grid frequency in Hz
-- `activePower` - Current active power in W
-- `energyImported` current fiscal meter value in KWh
+- `voltage` - *\[float, float, float\]* - Per phase charging voltage
+- `amperage` - *\[float, float, float\]*  - per Phase charging current
+- `frequency` - *float* - Current grid frequency in Hz
+- `activePower` - *float* - Current active power in W
+- `energyImported` - *float* - current fiscal meter value in KWh
 
-## Example Request
+## Example Output
 
 ```json title="pulsatrix/secc/A0123B4567C8/meter/fiscal"
 {
