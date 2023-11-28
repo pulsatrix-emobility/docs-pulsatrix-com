@@ -1,10 +1,7 @@
 openapi: 3.0.3
 info:
-  title: pulsatrix UserAPI
+  title: pulsatrix REST API
   description: |
-
-  contact:
-    email: hallo@pulsatrix.de
   version: 1.0.11
 servers:
   - url: https://xxx/api/v1/

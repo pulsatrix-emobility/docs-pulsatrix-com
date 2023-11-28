@@ -46,17 +46,27 @@ const config = {
           editUrl:
             'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
-        },
         theme: {
           customCss: './src/css/custom.css',
         },
       }),
+    ],
+    [
+      'redocusaurus',
+      {
+        // Plugin Options for loading OpenAPI files
+        specs: [
+          {
+            spec: 'static/openapi.yaml',
+            route: '/user-api/swagger/',
+          },
+        ],
+        // Theme Options for modifying how redoc renders them
+        theme: {
+          // Change with your site colors
+          primaryColor: '#2cb5a3',
+        },
+      },
     ],
   ],
 
@@ -87,38 +97,64 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                html: `
+                <a href="https://www.pulsatrix.de" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+                  <img src="https://www.pulsatrix.de/wp-content/uploads/2021/10/pulsatrix_450.png" alt="Deploys by Netlify" height="45" />
+                </a>
+                <p>
+                pulsatrix gmbh<br>
+                Bebelsbergstraße 31<br>
+                D-71088 Holzgerlingen<br>
+                <br>
+                hallo@pulsatrix.de<br>
+                +49 7031 416130<br>
+                <br>
+                Ein Unternehmen der <a href="https://www.levigo.de">levigo gruppe</a>.</p>
+              `,
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
-              }
             ],
           },
           {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Contact us',
+                href: 'https://www.pulsatrix.de/kontakt/',
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                href: 'https://github.com/pulsatrix-emobility/docs-pulsatrix-com',
+              },
+              {
+                html: `
+                <br><br><br>
+                <a href="https://www.pulsatrix.de" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
+                  <img src="https://www.pulsatrix.de/wp-content/uploads/2021/10/BEM_trans.png" alt="Deploys by Netlify" height="60" />
+                </a>
+                <p><a href="https://www.levigo.de">Member of the Bundesverband eMobilität e.V.</a></p>                
+              `,
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            // Please don't remove the privacy and terms, it's a legal
+            // requirement.
+            items: [
+              {
+                label: 'Privacy',
+                href: 'https://www.pulsatrix.de/datenschutz/',
+              },
+              {
+                label: 'Legal Notice',
+                href: 'https://www.pulsatrix.de/impressum/',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} pulsatrix e-mobility. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} pulsatrix gmbh, Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

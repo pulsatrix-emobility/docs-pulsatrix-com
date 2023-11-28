@@ -24,7 +24,7 @@ const FeatureList = [
         The MQTT API is a simple and lightweight messaging protocol that runs over TCP/IP sockets or WebSockets.
       </>
     ),
-    link: 'docs/category/mqtt-api',
+    link: 'docs/mqtt-api',
   },
   {
     title: 'REST & WebSocket API',
@@ -34,7 +34,7 @@ const FeatureList = [
         The REST & WebSocket API is a simple and lightweight messaging protocol that runs over HTTP or WebSockets.
       </>
     ),
-    link: '/docs/category/rest--websocket-api',
+    link: '/docs/ws-rest-api',
   },
 ];
 

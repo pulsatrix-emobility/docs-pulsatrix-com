@@ -14,12 +14,8 @@ const sidebars = {
           type: 'category',
           label: 'MQTT API',
           link: {
-            type: 'generated-index',
-            title: 'MQTT API',
-            description:
-            `
-            This is a short unformattable description.
-            `
+            type: 'doc',
+            id: 'user-api/mqtt-api/index',
           },
           items: [
             {
@@ -47,18 +43,19 @@ const sidebars = {
               id: 'user-api/mqtt-api/meter-grid',
               label: '/meter/grid',
             },
+            {
+              type: 'doc',
+              id: 'user-api/mqtt-api/limits',
+              label: 'Limits',
+            },
           ],
         },
         {
           type: 'category',
           label: 'REST / Websocket API',
           link: {
-            type: 'generated-index',
-            title: 'User API',
-            description:
-            `
-            This is a short unformattable description.
-            `
+            type: 'doc',
+            id: 'user-api/ws-rest-api/index',
           },
           items: [
             {
