@@ -12,7 +12,7 @@ The `transaction` endpoint returns transactional information about the charging 
 
 ## Values
 
-- `state` State of the charge controller
+- `state` - *String* - State of the charge controller
   - `Idle` - The charge point is not charging.
   - `Charging` - The charge point is charging.
   - `SuspendedEVSE` - The charge point is suspended by the 
@@ -22,15 +22,15 @@ The `transaction` endpoint returns transactional information about the charging 
   - `Unavailable` - The charge point is not available.
   - `Faulted` - The charge point is in an error state.  
 
-- `startedTime` time when the charge point started charging.  
+- `startedTime` - *int* - time when the charge point started charging.  
 
-- `endedTime` time when the charge point stopped charging.  
+- `endedTime` - *int* - time when the charge point stopped charging.  
 
-- `meterStart` value of the energyMeter at the start of the session.
+- `meterStart` - *float* - value of the energyMeter at the start of the session.
 
-- `meterStop` value of the energyMeter at the end of the session.
+- `meterStop` - *float* - value of the energyMeter at the end of the session.
 
-- `vehicleStatus` IEC 61851 Status of the EV
+- `vehicleStatus` - *String* - IEC 61851 Status of the EV
   - `A1` - Standby
   - `B1` - Vehicle detected
   - `C1` - Charge request
@@ -43,7 +43,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `C2`- Charging
   - `D2` - Charging + venting
 
-- `chargeControllerStatus` IEC 61851 Status of the SECC
+- `chargeControllerStatus` - *String* - IEC 61851 Status of the SECC
   - `A` - Disconnected
   - `B` - Connected
   - `C` - Charge request
@@ -53,9 +53,9 @@ The `transaction` endpoint returns transactional information about the charging 
   - `S` - Startup / unknown
   - `R` - Diode fail
 
-- `usedPhasesSession` Phases used for charging the EV.
+- `usedPhasesSession` *String* - Phases used for charging the EV.
 
-- `startReason` Reason for starting the charging session.
+- `startReason` - *String* - Reason for starting the charging session.
   - `Authorized` - Charging is authorized, by any means. Might be an RFID, or other authorization means.
   - `CablePluggedIn` - Cable is plugged in and EVDetected.
   - `ChargingRateChanged` - Rate of charging changed by more than LimitChangeSignificance.
@@ -78,7 +78,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `SignedDataReceived` - Signed data is received from the energy meter.
   - `ResetCommand` - CSMS sent a Reset Charging Station command.
 
-- `stopReason` Reason for stopping the charging session.
+- `stopReason` - *String* - Reason for stopping the charging session.
   - `DeAuthorized` - The transaction was stopped because of the authorization status in the response to a transactionEventRequest.
   - `EmergencyStop` - Emergency stop button was used.
   - `EnergyLimitReached` - EV charging session reached a locally enforced maximum energy transfer limit
@@ -99,7 +99,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `TimeLimitReached` - EV charging session reached a locally enforced time limit
   - `Timeout` - EV not connected within timeout
 
-- `allocationSourceName` Name of the source currently in controll of the charging session.
+- `allocationSourceName` - *String* - Name of the source currently in controll of the charging session.
   - `OCPP Profile` - The OCPP profile is in controll of the charging session.
   - `API` - The WebSocket or RESTful api is in controll of the charging session.
   - `Transaction` - FIXME: description
@@ -108,9 +108,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `Team` - FIXME: description
   - `Unmanaged` - FIXME: description
 
-
-## Example Request
-
+## Example Output
 
 <Tabs>
   <TabItem value="rest" label="REST" default>

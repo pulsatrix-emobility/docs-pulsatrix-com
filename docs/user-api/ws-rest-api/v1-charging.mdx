@@ -13,17 +13,17 @@ The `/charging` endpoint provides momentary information about the current chargi
 
 ## Values
 
-- `voltage` - Per phase charging voltage 
-- `amperage` - Per phase charging current
-- `allocatedAmperage` FIXME: description
-- `commandedAmperage` FIXME: description
-- `availableAmperage` FIXME: description
-- `signaledAmperage` - Amperage signaled to the EV
-- `frequency` - Current grid frequency in Hz
-- `energyImported` - Current meter value in kWh
-- `lastActivePower` - Last active power of the charge point
+- `voltage` - *\[float, float, float\]* - Per phase charging voltage 
+- `amperage` - *\[float, float, float\]* - Per phase charging current
+- `allocatedAmperage` - *float* - FIXME: description
+- `commandedAmperage` - *float* - FIXME: description
+- `availableAmperage` - *float* - FIXME: description
+- `signaledAmperage` - *float* - Amperage signaled to the EV
+- `frequency` - *float* - Current grid frequency in Hz
+- `energyImported` - *float* - Current meter value in kWh
+- `lastActivePower` - *float* - Last active power of the charge point
 
-## Example Request
+## Example Output
 
 <Tabs>
   <TabItem value="rest" label="REST" default>
