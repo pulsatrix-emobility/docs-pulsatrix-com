@@ -99,7 +99,7 @@ components:
           type: integer
           format: int32
           example: 32
-          description: absolute amperage limit of the charge point
+          description: absolute amperage limit of the EVSE
     transaction:
       type: object
       properties:
@@ -114,7 +114,7 @@ components:
           description: |
             states a charging controller can have
             * `Idle`: There is no connection between EV and EVSE.
-            * `EVConnected`: There is a connection between EV and EVSE, in case the protocol used between EV and the Charging Station can detect a connection, the protocol needs to detect this for the state to become active. The connection can either be wired or wireless.
+            * `EVConnected`: There is a connection between EV and EVSE, in case the protocol used between EV and the EVSE can detect a connection, the protocol needs to detect this for the state to become active. The connection can either be wired or wireless.
             * `SuspendedEV`: When the EV is connected to the EVSE and the EVSE is offering energy but the EV is not taking any energy.
             * `SuspendedEVSE`: When the EV is connected to the EVSE but the EVSE is not offering energy to the EV, e.g. due to a smart charging restriction, local supply power constraints, or when charging has stopped because of the authorization status in the response to a transactionEventRequest indicating that charging is not allowed etc.
             * `Charging`: The contactor of the Connector is closed and energy is flowing to between EVSE and EV.
@@ -122,12 +122,12 @@ components:
           type: integer
           format: int32
           example: 1699359776
-          description: time when the charge point started charging.
+          description: time when the EVSE started charging.
         endedTime:
           type: integer
           format: int32
           example: 1699359816
-          description: time when the charge point stopped charging.
+          description: time when the EVSE stopped charging.
         meterStart:
           type: number
           format: float32
@@ -269,8 +269,8 @@ components:
             * `EVDisconnected`: Disconnecting of cable, vehicle moved away from inductive charge unit.
             * `GroundFault`: A GroundFault has occurred.
             * `ImmediateReset`: A Reset(Immediate) command was received.
-            * `Local`: Stopped locally on request of the EV Driver at the Charging Station. This is a regular termination of a transaction. Examples: presenting an IdToken tag, pressing a button to stop.
-            * `LocalOutOfCredit`: A local credit limit enforced through the Charging Station has been exceeded. 
+            * `Local`: Stopped locally on request of the EV Driver at the EVSE. This is a regular termination of a transaction. Examples: presenting an IdToken tag, pressing a button to stop.
+            * `LocalOutOfCredit`: A local credit limit enforced through the EVSE has been exceeded. 
             * `MasterPass`: The transaction was stopped using a token with a MasterPassGroupId.
             * `Other`: Any other reason.
             * `OvercurrentFault`: A larger than intended electric current has occurred.
@@ -293,7 +293,7 @@ components:
             - Team
             - Unmanaged
           description: |
-            describes what is currently in controll of the charge point
+            describes what is currently in control of the EVSE
             * `OCPP Profile` 
             * `API` 
             * `Transaction` 
@@ -349,7 +349,7 @@ components:
           type: number
           format: float32
           example: 2036.600098
-          description: last active power of the charge point
+          description: last active power of the EVSE
     set:
       type: object
       properties:
@@ -364,7 +364,7 @@ components:
           example: 15.5
           description: |
             sets the amperage limit (a value below 6A will be set to 0A)
-            set to NaN to signal the SECC to take controll
+            set to NaN to signal the SECC to take control
         powerLimit:
           type: number
           minimum: 0
@@ -373,7 +373,7 @@ components:
           example: 10000.0
           description: |
             sets the power Limit (a value below 1380W will be set to 0W)
-            set to NaN to signal the SECC to take controll
+            set to NaN to signal the SECC to take control
         timeout:
           type: number
           minimum: 5000

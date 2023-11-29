@@ -7,17 +7,17 @@ title: Limits
 
 To set the limits of a charging session, send a message body with only the value to the desired topic.
 
-`/charging/amperageLimit`- *flaot* - Set the maximum amperage the charger will allow the vehicle to draw in amps. 
-- The charger always sets the limit to the minimum of all currently valid limits. This could lead to a
-situation where the limit set by the API is ignored because it is higher than the limit set byanother part of the system.
-- A limit below 6A will be ignored and the charger will set the limit to 0A.
-- A limit above the effectiveAmperageLimit will be ignored and the charger will set the limit to the effectiveAmperageLimit.
+`/charging/amperageLimit`- *flaot* - Set the maximum amperage the SECC will allow the vehicle to draw in amps.
+- The SECC always sets the limit to the minimum of all currently valid limits. This could lead to a
+situation where the limit set by the API is ignored because it is higher than the limit set by another part of the system.
+- A limit below 6A will be ignored and the SECC will set the limit to 0A.
+- A limit above the effectiveAmperageLimit will be ignored and the SECC will set the limit to the effectiveAmperageLimit.
 
-`/charging/powerLimit` - *int* - Set the maximum power the charger will allow the vehicle to draw in watts.
-- The power limit is effectively calculated back to the amperage limit and behaves the same as described above. (powerLimit / voltage = amperageLimit) 
+`/charging/powerLimit` - *int* - Set the maximum power the SECC will allow the vehicle to draw in watts.
+- The power limit is effectively calculated back to the amperage limit and behaves the same as described above. (powerLimit ÷ voltage ÷ used phases = amperageLimit)
 
 `/charging/limitTimeout` - *int* - Set the time in milliseconds the data set by the API will be valid.
-- The defult timeout for values set by the API is 300000 milliseconds (5 minutes).
+- The default timeout for values set by the API is 300,000 milliseconds (5 minutes).
 
 ## Example Request
 

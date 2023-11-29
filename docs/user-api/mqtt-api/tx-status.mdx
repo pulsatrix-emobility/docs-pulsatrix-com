@@ -9,60 +9,60 @@ FIXME: description
 
 - `id` - *String* - UUID of the charging session.
 
-- `state` - *String* - State of the charge controller
-  - `IDLE` - The charge point is not charging.
-  - `AWAITING_START` -  The EV is connected and the charge point is waiting for a start transaction.
-  - `AWAITING_AUTHORIZATION` - The EV is connected and the charge point is waiting for an authorization.
-  - `STARTING` - The EV is connected and the charge point is starting the charging session.
-  - `SUSPENDED_EVSE` - Charging is suspended by the charge point.
-  - `SUSPENDED_EV` - The charge point is suspended by the electric vehicle.
-  - `CHARGING` - The charge point is charging.
-  - `FAILED` - The charge point is in an error state.  
-  - `STOPPED` - The EV is connected and charing is stopped.
-  - `LINGERING` - The EV is currently connected or was recently connected and the charge point is still in the same transaction.
-  - `COMPLETED` - Charing is completed, EV is not connected, charge point is availabile.
+- `state` - *String* - State of the SECC
+  - `IDLE` - The EVSE is not charging.
+  - `AWAITING_START` -  An EV is connected and the EVSE is waiting for a start transaction.
+  - `AWAITING_AUTHORIZATION` - An EV is connected and the EVSE is waiting for an authorization.
+  - `STARTING` - An EV is connected and the EVSE is starting the charging session.
+  - `SUSPENDED_EVSE` - Charging is suspended by the EVSE.
+  - `SUSPENDED_EV` - The charging is suspended by the electric vehicle.
+  - `CHARGING` - The EV is being charged.
+  - `FAILED` - The EVSE is in an error state.
+  - `STOPPED` - An EV is connected and charging is stopped.
+  - `LINGERING` - An EV is currently connected or was recently connected and the EVSE is still in the same transaction.
+  - `COMPLETED` - Charging is completed, EV is not connected, EVSE is available.
 
 
-- `effectiveAmperageLimit` - *float* - EffectiveAmperageLimit - absolute amperage limit of the charge point --------- FIXME: description
+- `effectiveAmperageLimit` - *float* - EffectiveAmperageLimit - absolute amperage limit of the EVSE, due to cable cross section of the installation or the cable between the EVSE and the EV.
 
-- `startedTime` - *float* - Time when the charge point started charging.  
+- `startedTime` - *float* - Time when the EVSE started charging.
 
-- `endedTime` - *float* - Time when the charge point stopped charging.  
+- `endedTime` - *float* - Time when the EVSE stopped charging.
 
 - `startReason` - *String* - Reason why the charging was started.
   - `Authorized` - Charging is authorized, by any means. Might be an RFID, or other authorization means.
-  - `CablePluggedIn` - Cable is plugged in and EVDetected.
-  - `ChargingRateChanged` - Rate of charging changed by more than LimitChangeSignificance.
+  - `CablePluggedIn` - Cable is plugged in and `EVDetected`.
+  - `ChargingRateChanged` - Rate of charging changed by more than `LimitChangeSignificance`.
   - `ChargingStateChanged` - Charging State changed.
-  - `Deauthorized` - The transaction was stopped because of the authorization status in the response to a transactionEventRequest.
+  - `Deauthorized` - The transaction was stopped because of the authorization status in the response to a `transactionEventRequest`.
   - `EnergyLimitReached` - Maximum energy of charging reached. For example: in a pre-paid charging solution.
   - `EVCommunicationLost` - Communication with EV lost, for example: cable disconnected.
-  - `EVConnectTimeout` - EV not connected before the connection is timed out.
+  - `EVConnectTimeout` - EV not connected before the connection has timed out.
   - `MeterValueClock` - Needed to send a clock aligned meter value.
   - `MeterValuePeriodic` - Needed to send a periodic meter value.
   - `TimeLimitReached` - Maximum time of charging reached. For example: in a pre-paid charging solution.
-  - `Trigger` - Requested by the CSMS via a TriggerMessageRequest.
+  - `Trigger` - Requested by the CSMS via a `TriggerMessageRequest`.
   - `UnlockCommand` - CSMS sent an Unlock Connector command.
   - `StopAuthorized` - An EV Driver has been authorized to stop charging. For example: By swiping an RFID card.
   - `EVDeparted` - EV departed. For example: When a departing EV triggers a parking bay detector.
   - `EVDetected` - EV detected. For example: When an arriving EV triggers a parking bay detector.
-  - `RemoteStop` - A RequestStopTransactionRequest has been sent.
-  - `RemoteStart` - A RequestStartTransactionRequest has been sent.
-  - `AbnormalCondition` - An Abnormal Error or Fault Condition has occurred.
+  - `RemoteStop` - A `RequestStopTransactionRequest` has been sent.
+  - `RemoteStart` - A `RequestStartTransactionRequest` has been sent.
+  - `AbnormalCondition` - An abnormal error or a fault condition has occurred.
   - `SignedDataReceived` - Signed data is received from the energy meter.
   - `ResetCommand` - CSMS sent a Reset Charging Station command.
 
-- `energyActiveImportRegister` - FIXME: description
+- `energyActiveImportRegister` - Represents the cumulative active energy imported by the EVSE
 
-- `lastActivePower` - *float* - Current active power of the charge point.
+- `lastActivePower` - *float* - Current active power of the EVSE.
 
 - `meterStart` - *float* - Value of the energyMeter at the start of the session.
 
 - `meterStop` - *float* - Value of the energyMeter at the end of the session.
 
-- `peakPhaseAmperage` - FIXME: datatype - Peak amperage values for each phase of the charge point.
+- `peakPhaseAmperage` - FIXME: datatype - Peak amperage values for each phase of the EVSE.
 
-- `peakActivePower` - *float* - Peak active power of the charge point.
+- `peakActivePower` - *float* - Peak active power of the EVSE.
 
 ## Example Output
 

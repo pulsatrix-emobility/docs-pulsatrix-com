@@ -12,23 +12,23 @@ The `transaction` endpoint returns transactional information about the charging 
 
 ## Values
 
-- `state` - *String* - State of the charge controller
-  - `Idle` - The charge point is not charging.
-  - `Charging` - The charge point is charging.
-  - `SuspendedEVSE` - The charge point is suspended by the 
-  - `SuspendedEV` - The charge point is suspended by the electric vehicle.
-  - `Finishing` - The charge point is finishing a transaction.
-  - `Reserved` - The charge point is reserved and not available for charging.
-  - `Unavailable` - The charge point is not available.
-  - `Faulted` - The charge point is in an error state.  
+- `state` - *String* - State of the SECC
+  - `Idle` - The EVSE is not charging.
+  - `Charging` - The EVSE is charging.
+  - `SuspendedEVSE` - The EVSE is suspended by the
+  - `SuspendedEV` - The EVSE is suspended by the electric vehicle.
+  - `Finishing` - The EVSE is finishing a transaction.
+  - `Reserved` - The EVSE is reserved and not available for charging.
+  - `Unavailable` - The EVSE is not available.
+  - `Faulted` - The EVSE is in an error state.
 
-- `startedTime` - *int* - time when the charge point started charging.  
+- `startedTime` - *int* - Time when the EVSE started charging.
 
-- `endedTime` - *int* - time when the charge point stopped charging.  
+- `endedTime` - *int* - Time when the EVSE stopped charging.
 
-- `meterStart` - *float* - value of the energyMeter at the start of the session.
+- `meterStart` - *float* - Value of the energyMeter at the start of the session.
 
-- `meterStop` - *float* - value of the energyMeter at the end of the session.
+- `meterStop` - *float* - Value of the energyMeter at the end of the session.
 
 - `vehicleStatus` - *String* - IEC 61851 Status of the EV
   - `A1` - Standby
@@ -85,8 +85,8 @@ The `transaction` endpoint returns transactional information about the charging 
   - `EVDisconnected` - Disconnecting of cable, vehicle moved away from inductive charge unit.
   - `GroundFault` - A GroundFault has occurred
   - `ImmediateReset` - A Reset(Immediate) command was received.
-  - `Local` - Stopped locally on request of the EV Driver at the Charging Station. This is a regular termination of a transaction. Examples: presenting an IdToken tag, pressing a button to stop.
-  - `LocalOutOfCredit` - A local credit limit enforced through the Charging Station has been exceeded.
+  - `Local` - Stopped locally on request of the EV Driver at the EVSE. This is a regular termination of a transaction. Examples: presenting an IdToken tag, pressing a button to stop.
+  - `LocalOutOfCredit` - A local credit limit enforced through the EVSE has been exceeded.
   - `MasterPass` - The transaction was stopped using a token with a MasterPassGroupId.
   - `Other` - Any other reason.
   - `OvercurrentFault` - A larger than intended electric current has occurred
@@ -94,16 +94,16 @@ The `transaction` endpoint returns transactional information about the charging 
   - `PowerQuality` - Quality of power too low, e.g. voltage too low/high, phase imbalance, etc.
   - `Reboot` - A locally initiated reset/reboot occurred. (for instance watchdog kicked in)
   - `Remote` - Stopped remotely on request of the CSMS. This is a regular termination of a transaction.
-  - `SOCLimitReached` - Electric vehicle has reported reaching a locally enforced maximum battery State of Charge (SOC)
+  - `SOCLimitReached` - EV has reported reaching a locally enforced maximum battery State of Charge (SOC)
   - `StoppedByEV` - The transaction was stopped by the EV
   - `TimeLimitReached` - EV charging session reached a locally enforced time limit
   - `Timeout` - EV not connected within timeout
 
-- `allocationSourceName` - *String* - Name of the source currently in controll of the charging session.
-  - `OCPP Profile` - The OCPP profile is in controll of the charging session.
-  - `API` - The WebSocket or RESTful api is in controll of the charging session.
+- `allocationSourceName` - *String* - Name of the source currently in control of the charging session.
+  - `OCPP Profile` - The OCPP profile is in control of the charging session.
+  - `API` - The WebSocket or RESTful api is in control of the charging session.
   - `Transaction` - FIXME: description
-  - `MQTT` - The MQTT api is in controll of the charging session.
+  - `MQTT` - The MQTT api is in control of the charging session.
   - `ProximityPilot` - FIXME: description
   - `Team` - FIXME: description
   - `Unmanaged` - FIXME: description
