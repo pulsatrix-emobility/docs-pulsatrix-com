@@ -2,19 +2,19 @@
 title: Limits
 ---
 
-# 
+#
 # <span style={{ display: 'flex', alignItems: 'center' }}>Limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#FCA130', color: 'white', padding: '5px', borderRadius: '5px', fontSize: '23px' }}>SET</span></span>
 
-To set the limits of a charging session, send a message body with only the value to the desired topic.
+To set the limits applicable to a charging session, send a message body containing the value as a string to the corresponding topic.
 
-`/charging/amperageLimit`- *flaot* - Set the maximum amperage the SECC will allow the vehicle to draw in amps.
+`/charging/amperageLimit`- *float* - Set the maximum amperage the SECC will allow the vehicle to consume in amps.
 - The SECC always sets the limit to the minimum of all currently valid limits. This could lead to a
 situation where the limit set by the API is ignored because it is higher than the limit set by another part of the system.
 - A limit below 6A will be ignored and the SECC will set the limit to 0A.
 - A limit above the effectiveAmperageLimit will be ignored and the SECC will set the limit to the effectiveAmperageLimit.
 
-`/charging/powerLimit` - *int* - Set the maximum power the SECC will allow the vehicle to draw in watts.
-- The power limit is effectively calculated back to the amperage limit and behaves the same as described above. (powerLimit ÷ voltage ÷ used phases = amperageLimit)
+`/charging/powerLimit` - *int* - Set the maximum charging power the SECC will allow the vehicle to consume in watts.
+- The power limit is internally converted to an amperage limit and behaves the same as described above. (powerLimit ÷ voltage ÷ used phases = amperageLimit)
 
 `/charging/limitTimeout` - *int* - Set the time in milliseconds the data set by the API will be valid.
 - The default timeout for values set by the API is 300,000 milliseconds (5 minutes).
