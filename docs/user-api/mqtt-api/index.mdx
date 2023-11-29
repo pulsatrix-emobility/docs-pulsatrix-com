@@ -1,0 +1,20 @@
+---
+slug: /mqtt-api
+---
+
+# MQTT API
+
+To use the MQTT API, the MQTT connector must be enabled in the `MQTT` component configuration. At least the URI of the MQTT broker to be used must be configured, but depending on the installation other parameters may also be required. After saving the settings, you will need to restart the SECC in order to make the changes take effect.
+
+**The topic is defined as follows:**
+`<Topic-Prefix>/<Client-ID>/<Topic>`
+
+The default `Topic-Prefix` is: `/pulsatrix/secc` but can be configured through the `MQTT` component.
+
+The `Client-ID` can be either found in the `MQTT` component configuration, or on the 2nd page of the SECC display. By default it is an alphanumeric string of 12 characters equal to the serial number of the device. However, the client ID can be changed through the component configuration.
+
+The `Topic` is defined by the API and is listed below.
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

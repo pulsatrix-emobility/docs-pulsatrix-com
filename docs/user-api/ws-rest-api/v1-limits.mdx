@@ -1,0 +1,88 @@
+---
+title: /v1/limits
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+#
+# <span style={{ display: 'flex', alignItems: 'center' }}>/v1/limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
+
+The `/limits` endpoint provides control functionality for the limits of the SECC.You can set the limits through the `SET` endpoint, and use a `GET` to get the current values set through the API.
+
+
+The limits are only active if the `enabled` value is set to `true`.
+If you set the limits for `amperageLimit` and `powerLimit`, the lower effective value will be used.
+
+## Values
+- `enabled` - *bool* - Get or set the enable state of the limits
+- If the enabled state is set to false, the SECC will ignore all limits set by the API and
+- `amperageLimit` - *float* - Get or Set the maximum current the SECC will allow the vehicle to draw in amps.
+- The SECC always sets the limit to the minimum of all currently valid limits. This could lead to a
+situation where the limit set by the API is ignored because it is higher than the limit set by another part of the system.
+- A limit below 6A will be ignored and the SECC will set the limit to 0A.
+- A limit above the effectiveAmperageLimit will be ignored and the SECC will set the limit to the effectiveAmperageLimit.
+- `powerLimit` - *int* - Get or set the maximum power the SECC will allow the vehicle to draw in watts.
+- The power limit is effectively calculated back to the amperage limit and behaves the same as described above. (powerLimit ÷ voltage ÷ usedPhases = amperageLimit)
+
+- `timeout` - *int* - Get or set the time in milliseconds how long the data, set by the API, will be valid.
+- The default timeout for values set by the API is 300,000 milliseconds (5 minutes).
+
+## Example Output
+
+
+<Tabs>
+  <TabItem value="rest" label="REST" default>
+    ``` json title="http://127.0.0.1/api/v1/limits"
+    {
+      "enabled": true,
+      "amperageLimit": NaN,
+      "powerLimit": NaN,
+      "timeout": 300000
+    }
+    `````
+  </TabItem>
+  <TabItem value="ws" label="WebSocket">
+    ```json title="ws://127.0.0.1:80/api/ws"
+    Topic: limits
+
+    {"enabled": false,"amperageLimit": NaN,"powerLimit": NaN,"timeout": 300000}
+    ```
+  </TabItem>
+</Tabs>
+
+## <span style={{ display: 'flex', alignItems: 'center' }}>/v1/limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#FCA130', color: 'white', padding: '5px', borderRadius: '5px', fontSize: '23px' }}>SET</span></span>
+
+
+  The SET endpoint for the limits looks different depending on the protocol used, the REST endpoint allows you to set all values at once, while the WebSocket endpoint only allows you to set one value at a time.
+  If you want to give up control over a value, set it to `NaN`.
+
+<Tabs>
+  <TabItem value="rest" label="REST" default>
+    Set the request body to the desired values. If you want to change only one value, you can leave the others out.
+
+    ``` json title="http://127.0.0.1/api/v1/limits"
+    {
+      "enabled": true,
+      "amperageLimit": NaN,
+      "powerLimit": NaN,
+      "timeout": 300000
+    }
+    ```
+  </TabItem>
+  <TabItem value="ws" label="WebSocket">
+    - `setEnabled` - *bool* - Sets the enable state of the limits
+    - `setCurrentLimit` - *float32* - Sets the amperage limit in amps
+    - `setPowerLimit` - *int* - Sets the power limit in watts
+    - `setTimeout` - *int* - Sets the data validity timeout
+
+    With WebSocket it is only possible to set one value at a time.
+    Use the format: `"<command>\n<value>"` to set the value.
+
+    `"setCurrentLimit\n8.5"` *Set the amperage limit to 8.5A*
+    `"setPowerLimit\n10000"` *Sets the Power Limit to 10000W*
+    `"setEnabled\ntrue"` *Sets the enable state to true*
+    `"setTimeout\n10000"` *Sets the data validity timeout to 10000ms*
+
+  </TabItem>
+</Tabs>

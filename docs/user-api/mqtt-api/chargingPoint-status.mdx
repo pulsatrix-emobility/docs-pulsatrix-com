@@ -1,0 +1,30 @@
+---
+title: /chargingPoint/status
+---
+#
+# <span style={{ display: 'flex', alignItems: 'center' }}>/chargingPoint/status<span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
+
+
+This endpoint provides high-level status information about a single charging point.
+
+- `evse` Describes the electric vehicle service equipment associated with the charging point
+  - `id` ID of the EVSE served by the SECC controller (always `1` at this time)
+- `connectorStatus` - *String* - State of the charging connector.
+    - `Available` - When a connector becomes available for a new user (operative)
+    - `Occupied` - When a connector becomes occupied, so it is not available for a new EV driver. (operative)
+    - `Reserved` - When a connector becomes reserved as a result of ReserveNow command (operative)
+    - `Unavailable`- When a connector becomes unavailable as the result of a change availability command or an event upon which the EVSE transitions to unavailable at its discretion. Upon receipt of ChangeAvailability message command, the status MAY change immediately or the change MAY be scheduled. When scheduled, StatusNotification SHALL be send when the availability change becomes effective (Inoperative)
+    - `Faulted` - When a connector (or the EVSE or the entire EVSE it belongs to) has reported an error and is not available for energy delivery. (Inoperative).
+
+
+## Example Output
+
+```json title="pulsatrix/secc/A0123B4567C8/chargingPoint/status"
+{
+  "evse":
+    {
+    "id":1
+    },
+  "connectorStatus":"Occupied"
+}
+```
