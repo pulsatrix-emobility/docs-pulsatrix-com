@@ -8,21 +8,6 @@ servers:
 tags:
   - name: REST
 paths:
-  /configuration:
-    get:
-      tags:
-        - REST
-      summary: Returns configurational data
-      description: |
-        Returns all configurational (static) values of a charging session.  
-        Those values only change when a new charging session is started
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/configuration'
   /transaction:
     get:
       tags:
@@ -88,10 +73,10 @@ paths:
                 $ref: '#/components/schemas/set'
 components:
   schemas:
-    configuration:
+    transaction:
       type: object
       properties:
-        session-id:
+        sessionId:
           type: string
           example: "018ba9bc-5ebe-b235-e5fb-dba94e99767e"
           description: UUID of the charging session.
@@ -100,9 +85,6 @@ components:
           format: int32
           example: 32
           description: absolute amperage limit of the EVSE
-    transaction:
-      type: object
-      properties:
         state:
           type: string
           enum:

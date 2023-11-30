@@ -11,6 +11,9 @@ import TabItem from '@theme/TabItem';
 The `transaction` endpoint returns transactional information about the charging session. 
 
 ## Values
+- `sessionId` - *String* - UUID of the charging session.
+
+- `effectiveAmperageLimit` - *float* - Absolute amperage limit of the EVSE
 
 - `state` - *String* - State of the SECC
   - `Idle` - No EV connected.
@@ -114,6 +117,8 @@ The `transaction` endpoint returns transactional information about the charging 
   <TabItem value="rest" label="REST" default>
     ``` json title="http://127.0.0.1/api/v1/transaction"
     {
+      "session-id": "018ba9bc-5ebe-b235-e5fb-dba94e99767e",
+      "effectiveAmperageLimit": 64,
       "state": "IDLE",
       "startedTime": 1699359776,
       "endedTime": 1699359816,
@@ -132,7 +137,7 @@ The `transaction` endpoint returns transactional information about the charging 
     ```json title="ws://127.0.0.1:80/api/ws"
     {
     "topic": "transaction",
-    "message": {"state":"IDLE","startedTime":1699359776,"endedTime":1699359816,"meterStart":0.302999973,"meterStop":0.302999973,"vehicleStatus":"A","chargeControllerStatus":"A1","usedPhasesSession":"111","startReason":"Authorized","stopReason":"DeAuthorized","allocationSourceName":"OCPP Profile"}
+    "message": {"sessionId":"018ba9bc-5ebe-b235-e5fb-dba94e99767e","effectiveAmperageLimit":32, "state":"IDLE","startedTime":1699359776,"endedTime":1699359816,"meterStart":0.302999973,"meterStop":0.302999973,"vehicleStatus":"A","chargeControllerStatus":"A1","usedPhasesSession":"111","startReason":"Authorized","stopReason":"DeAuthorized","allocationSourceName":"OCPP Profile"}
     }
     ```
   </TabItem>
