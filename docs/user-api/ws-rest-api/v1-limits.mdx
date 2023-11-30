@@ -44,9 +44,10 @@ situation where the limit set by the API is ignored because it is higher than th
   </TabItem>
   <TabItem value="ws" label="WebSocket">
     ```json title="ws://127.0.0.1:80/api/ws"
-    Topic: limits
-
-    {"enabled": false,"amperageLimit": NaN,"powerLimit": NaN,"timeout": 300000}
+    {
+    "topic": "limits",
+    "message": {"enabled": false,"amperageLimit": NaN,"powerLimit": NaN,"timeout": 300000}
+    }
     ```
   </TabItem>
 </Tabs>

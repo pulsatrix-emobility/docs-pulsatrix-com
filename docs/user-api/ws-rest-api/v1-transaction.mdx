@@ -130,9 +130,10 @@ The `transaction` endpoint returns transactional information about the charging 
   </TabItem>
   <TabItem value="ws" label="WebSocket">
     ```json title="ws://127.0.0.1:80/api/ws"
-    Topic: transaction
-
-    {"state":"IDLE","startedTime":1699359776,"endedTime":1699359816,"meterStart":0.302999973,"meterStop":0.302999973,"vehicleStatus":"A","chargeControllerStatus":"A1","usedPhasesSession":"111","startReason":"Authorized","stopReason":"DeAuthorized","allocationSourceName":"OCPP Profile"}
+    {
+    "topic": "transaction",
+    "message": {"state":"IDLE","startedTime":1699359776,"endedTime":1699359816,"meterStart":0.302999973,"meterStop":0.302999973,"vehicleStatus":"A","chargeControllerStatus":"A1","usedPhasesSession":"111","startReason":"Authorized","stopReason":"DeAuthorized","allocationSourceName":"OCPP Profile"}
+    }
     ```
   </TabItem>
 </Tabs>

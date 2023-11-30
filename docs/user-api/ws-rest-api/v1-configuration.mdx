@@ -29,9 +29,10 @@ The `configuration` endpoint is used to get the session specific configuration o
   </TabItem>
   <TabItem value="ws" label="WebSocket">
     ```json title="ws://127.0.0.1:80/api/ws"
-    Topic: configuration
-
-    {"sessionId":"018ba9bc-5ebe-b235-e5fb-dba94e99767e","effectiveAmperageLimit":32}
+    {
+    "topic": "configuration",
+    "message": {"sessionId":"018ba9bc-5ebe-b235-e5fb-dba94e99767e","effectiveAmperageLimit":32}
+    }
     ```
   </TabItem>
 </Tabs>
