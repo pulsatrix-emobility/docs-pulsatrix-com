@@ -51,9 +51,10 @@ The `/charging` endpoint provides momentary information about the current chargi
   </TabItem>
   <TabItem value="ws" label="WebSocket">
     ```json title="ws://127.0.0.1:80/api/ws"
-    Topic: charging
-
-    {"voltage":[234.5166016,235.1175079,235.7384491],"amperage":[8.13,8.2,8.09],"allocatedAmperage":16,"commandedAmperage":0,"availableAmperage":18,"signaledAmperage":18,"frequency":49.93060684,"energyImported":0.307999998,"lastActivePower":2036.600098}
+    {
+      "topic": "charging",
+      "message": {"voltage":[234.5166016,235.1175079,235.7384491],"amperage":[8.13,8.2,8.09],"allocatedAmperage":16,"commandedAmperage":0,"availableAmperage":18,"signaledAmperage":18,"frequency":49.93060684,"energyImported":0.307999998,"lastActivePower":2036.600098}
+    }  
     ```
   </TabItem>
 </Tabs>
