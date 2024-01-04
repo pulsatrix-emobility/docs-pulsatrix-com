@@ -8,6 +8,22 @@ servers:
 tags:
   - name: REST
 paths:
+  /configuration:
+    get:
+      tags:
+        - REST
+      summary: Returns configurational data
+      description: |
+        Returns all configurational values of the charging point
+
+        Those values can only change when a new charging session is started.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/configuration'
   /transaction:
     get:
       tags:
@@ -25,7 +41,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/transaction'
-  /charge:
+  /charging:
     get:
       tags:
         - REST
@@ -41,14 +57,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/charge'
-  /set:
+                $ref: '#/components/schemas/charging'
+  /limits:
     put:
       tags:
         - REST
       summary: Updates charging relevant data
       description: >
-        updates charging relevant data. When setting amperageLimit and
+        Updates charging relevant data. When setting amperageLimit and
         powerLimit at the same time the lower limit is used.
       responses:
         '204':
@@ -59,14 +75,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/set'
+              $ref: '#/components/schemas/limits'
         required: true
     get:
       tags:
         - REST
       summary: Returns updated charging data
       description: >
-        returns the charging relevant data set by the api, regardless of their
+        Returns the charging relevant data set by the api, regardless of their
         validity.
       responses:
         '200':
@@ -74,12 +90,22 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/set'
+                $ref: '#/components/schemas/limits'
 components:
   schemas:
-    transaction:
+    configuration:
       type: object
       properties:
+        pdName:
+          type: string
+          format: string
+          example: Daheim
+          description: name of the powerdomain the charging controller is in.
+        ctrlrName:
+          type: string
+          format: string
+          example: Garage
+          description: Name of the charging point.
         sessionId:
           type: string
           example: 018ba9bc-5ebe-b235-e5fb-dba94e99767e
@@ -88,7 +114,20 @@ components:
           type: integer
           format: int32
           example: 32
-          description: absolute amperage limit of the EVSE
+          description: Absolute amperage limit of the EVSE.
+        hasPhaseRotation:
+          type: boolean
+          format: bool
+          example: false
+          description: Indicates if the phases are rotated by 1 phase or not.
+        hasPhaseStShutoff:
+          type: boolean
+          format: bool
+          example: true
+          description: Indicates if the controller can shut of 2 phases independantly.
+    transaction:
+      type: object
+      properties:
         state:
           type: string
           enum:
@@ -98,7 +137,7 @@ components:
             - SuspendedEVSE
             - Charging
           description: >
-            states a charging controller can have
+            States a charging controller can have.
 
             * `Idle`: There is no connection between EV and EVSE.
 
@@ -122,22 +161,22 @@ components:
           type: integer
           format: int32
           example: 1699359776
-          description: time when the EVSE started charging.
+          description: Time when the EVSE started charging.
         endedTime:
           type: integer
           format: int32
           example: 1699359816
-          description: time when the EVSE stopped charging.
+          description: Time when the EVSE stopped charging.
         meterStart:
           type: number
           format: float32
           example: 0.302999973
-          description: value of the energyMeter at the start of the session.
+          description: Value of the energyMeter at the start of the session.
         meterStop:
           type: number
           format: float32
           example: 0.302999973
-          description: value of the energyMeter at the end of the session.
+          description: Value of the energyMeter at the end of the session.
         vehicleStatus:
           type: string
           enum:
@@ -190,7 +229,7 @@ components:
         usedPhasesSession:
           type: string
           example: '111'
-          description: phases used for charging the EV.
+          description: Phases used for charging the EV.
         startReason:
           type: string
           enum:
@@ -216,7 +255,7 @@ components:
             - SignedDataReceived
             - ResetCommand
           description: >
-            reason why a charging start is issued.
+            Reason why a charging start is issued.
 
             * `Authorized`: Charging is authorized, by any means. Might be an
             RFID, or other authorization means.
@@ -357,7 +396,7 @@ components:
             - Team
             - Unmanaged
           description: |
-            describes what is currently in control of the EVSE
+            Describes what is currently in control of the EVSE.
             * `OCPP Profile` 
             * `API` 
             * `Transaction` 
@@ -365,7 +404,7 @@ components:
             * `ProximityPilot`
             * `Team`
             * `Unmanaged`
-    charge:
+    charging:
       type: object
       properties:
         voltage:
@@ -377,7 +416,7 @@ components:
             - 234.1605072
             - 234.0818024
             - 234.2052612
-          description: current per phase voltage
+          description: Current per phase voltage
         amperage:
           type: array
           items:
@@ -387,7 +426,7 @@ components:
             - 8.13
             - 8.2
             - 8.09
-          description: current per phase amperage
+          description: Current per phase amperage
         allocatedAmperage:
           type: number
           format: float32
@@ -404,28 +443,28 @@ components:
           type: number
           format: float32
           example: 18
-          description: amperage signaled to the EV
+          description: Amperage signaled to the EV
         frequency:
           type: number
           format: float32
           example: 49.930336
-          description: current grid frequency in Hz
+          description: Current grid frequency in Hz
         energyImported:
           type: number
           format: float32
           example: 0.307999998
-          description: current meter value
+          description: Current meter value
         lastActivePower:
           type: number
           format: float32
           example: 2036.600098
-          description: last active power of the EVSE
-    set:
+          description: Last active power of the EVSE
+    limits:
       type: object
       properties:
         enabled:
           type: boolean
-          description: enables/disables charging
+          description: Enables/disables charging
         amperageLimit:
           type: number
           minimum: 0
@@ -433,8 +472,8 @@ components:
           format: float32
           example: 15.5
           description: |
-            sets the amperage limit (a value below 6A will be set to 0A)
-            set to NaN to signal the SECC to take control
+            Sets the amperage limit (a value below 6A will be set to 0A).
+            Set to NaN to signal the SECC to take control.
         powerLimit:
           type: number
           minimum: 0
@@ -442,12 +481,12 @@ components:
           format: float32
           example: 10000
           description: |
-            sets the power Limit (a value below 1380W will be set to 0W)
-            set to NaN to signal the SECC to take control
+            Sets the power Limit (a value below 1380W will be set to 0W)
+            Set to NaN to signal the SECC to take control
         timeout:
           type: number
           minimum: 5000
           maximum: 86400
           format: int32
           example: 300000
-          description: sets the time in ms when the data set by the API becomes invalid
+          description: Sets the time in ms when the data set by the API becomes invalid
