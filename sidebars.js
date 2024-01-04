@@ -60,6 +60,11 @@ const sidebars = {
           items: [
             {
               type: 'doc',
+              id: 'user-api/ws-rest-api/v1-configuration',
+              label: '/v1/configuration',
+            },
+            {
+              type: 'doc',
               id: 'user-api/ws-rest-api/v1-transaction',
               label: '/v1/transaction',
             },

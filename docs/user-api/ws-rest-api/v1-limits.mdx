@@ -15,18 +15,19 @@ The limits are only active if the `enabled` value is set to `true`.
 If you set the limits for `amperageLimit` and `powerLimit`, the lower effective value will be used.
 
 ## Values
-- `enabled` - *bool* - Get or set the enable state of the limits
-- If the enabled state is set to false, the SECC will ignore all limits set by the API and
-- `amperageLimit` - *float* - Get or Set the maximum current the SECC will allow the vehicle to draw in amps.
-- The SECC always sets the limit to the minimum of all currently valid limits. This could lead to a
-situation where the limit set by the API is ignored because it is higher than the limit set by another part of the system.
-- A limit below 6A will be ignored and the SECC will set the limit to 0A.
-- A limit above the effectiveAmperageLimit will be ignored and the SECC will set the limit to the effectiveAmperageLimit.
+- `enabled` - *bool* - Get or set the enable state of the limits  
+  - If the enabled state is set to false, the SECC will ignore all limits set by the API and
+- `amperageLimit` - *float* - Get or Set the maximum current the SECC will allow the vehicle to draw in amps.  
+  - The SECC always sets the limit to the minimum of all currently valid limits. This could lead to a
+situation where the limit set by the API is ignored because it is higher than the limit set by another part of the system.   
+  - A limit below 6A will be ignored and the SECC will set the limit to 0A.  
+  - A limit above the effectiveAmperageLimit will be ignored and the SECC will set the limit to the effectiveAmperageLimit.
 - `powerLimit` - *int* - Get or set the maximum power the SECC will allow the vehicle to draw in watts.
-- The power limit is effectively calculated back to the amperage limit and behaves the same as described above. (powerLimit ÷ voltage ÷ usedPhases = amperageLimit)
+  - The power limit is effectively calculated back to the amperage limit and behaves the same as described above.  
+  (powerLimit ÷ voltage ÷ usedPhases = amperageLimit)
 
 - `timeout` - *int* - Get or set the time in milliseconds how long the data, set by the API, will be valid.
-- The default timeout for values set by the API is 300,000 milliseconds (5 minutes).
+  - The default timeout for values set by the API is 300,000 milliseconds (5 minutes).
 
 ## Example Output
 
@@ -36,17 +37,27 @@ situation where the limit set by the API is ignored because it is higher than th
     ``` json title="http://127.0.0.1/api/v1/limits"
     {
       "enabled": true,
-      "amperageLimit": NaN,
-      "powerLimit": NaN,
+      "phaseShutoff": false,
+      "phaseRotation": false,
+      "amperageLimit":NaN,
+      "powerLimit":NaN,
       "timeout": 300000
     }
-    `````
+    ```
   </TabItem>
   <TabItem value="ws" label="WebSocket">
     ```json title="ws://127.0.0.1:80/api/ws"
     {
-    "topic": "limits",
-    "message": {"enabled": false,"amperageLimit": NaN,"powerLimit": NaN,"timeout": 300000}
+      "topic": "limits",
+      "message": 
+      {
+        "enabled": true,
+        "phaseShutoff": false,
+        "phaseRotation": false,
+        "amperageLimit":NaN,
+        "powerLimit":NaN,
+        "timeout": 300000
+      }
     }
     ```
   </TabItem>

@@ -1,0 +1,54 @@
+---
+title: /v1/configuration
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+
+#
+# <span style={{ display: 'flex', alignItems: 'center' }}>/v1/configuration <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#62B0FE', color: 'white', padding: '4px', borderRadius: '5px', fontSize: '23px' }}>GET</span></span>
+
+The `/charging` endpoint provides momentary information about the current charging process.
+
+## Values
+
+- `pdName` - *string* - Name of the Power Domain
+- `ctrlrName` - *string* - Name of the Controller
+- `sessionId` - *string* - UUID of the charging current session
+- `effectiveAmperageLimit` - *int* - Absolute amperage limit of the EVSE
+- `hasPhaseRotation` - *bool* - Indicates if the EVSE has phases rotated by 120°
+- `hasPhaseStShutoff` - *bool* - Indicates if the EVSE has a phase shutoff enabled
+
+## Example Output
+
+<Tabs>
+  <TabItem value="rest" label="REST" default>
+    ``` json title="http://127.0.0.1/api/v1/configuration"
+    {
+      "powerDomainName":"Zuhause",
+      "controllerName":"Garage",
+      "sessionId":"0b8cd3b0-5412-e569-9a39-ed3d1c2fa956",
+      "effectiveAmperageLimit":32,
+      "hasPhaseRotation":false,
+      "hasPhaseShutoff":false
+    }
+    `````
+  </TabItem>
+  <TabItem value="ws" label="WebSocket">
+    ```json title="ws://127.0.0.1:80/api/ws"
+    {
+      "topic":"configuration",
+      "message":
+      {
+        "powerDomainName":"Zuhause",
+        "controllerName":"Garage",
+        "sessionId":"0b8cd3b0-5412-e569-9a39-ed3d1c2fa956",
+        "effectiveAmperageLimit":32,
+        "hasPhaseRotation":false,
+        "hasPhaseShutoff":false
+      }
+    } 
+    ```
+  </TabItem>
+</Tabs>

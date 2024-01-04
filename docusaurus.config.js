@@ -133,7 +133,7 @@ const config = {
                 <a href="https://www.pulsatrix.de" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
                   <img src="https://www.pulsatrix.de/wp-content/uploads/2021/10/BEM_trans.png" alt="Deploys by Netlify" height="60" />
                 </a>
-                <p><a href="https://www.levigo.de">Member of the Bundesverband eMobilität e.V.</a></p>                
+                <p><a href="https://www.bem-ev.de/">Member of the Bundesverband eMobilität e.V.</a></p>                
               `,
               },
             ],
