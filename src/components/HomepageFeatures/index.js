@@ -36,6 +36,16 @@ const FeatureList = [
     ),
     link: '/docs/ws-rest-api',
   },
+  {
+    title: 'Solar Surplus Charging',
+    Svg: require('@site/static/img/surplus_charging.svg').default,
+    description: (
+      <>
+        The Solar Surplus Charging feature allows you to charge your electric vehicle with surplus solar energy.
+      </>
+    ),
+    link: '/docs/ws-rest-api',
+  },
 ];
 
 function Feature({Svg, title, description, link}) {

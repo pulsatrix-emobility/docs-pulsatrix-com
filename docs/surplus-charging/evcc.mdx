@@ -1,0 +1,33 @@
+---
+title: evcc
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# evcc.io
+evcc.io is an open-source project that aims to make it easier to control and optimize electric vehicle (EV) charging, especially when using solar energy. It is a local solution that runs on your own hardware, without relying on cloud services or third-party integrations.
+
+## Features
+- **Smart Home Integration:** evcc can be integrated with various smart home platforms, such as Home Assistant, openHAB, and ioBroker, allowing you to control your charging from a centralized dashboard.
+
+- **Flexible Plugin Architecture:** evcc features a modular plugin architecture, enabling users to extend its functionality by creating their own plugins for specific devices or integrations.
+
+- **Local Control:** evcc runs completely locally, ensuring your privacy and security. It doesn't rely on external servers or cloud services, giving you full control over your data.
+
+## Installation
+For installation instructions, please refer to the [official documentation](https://docs.evcc.io/docs/installation/) of evcc.
+
+## Configuration
+The configuration of evcc is done via the configuration daemon that is called by: `./evcc configure` 
+
+:::info
+Currently there is a bug with the configuration of a pulsatrix charger. When you set up a pulsatrix charger it can happen that you get this message after testing:
+```
+Testing the configuration of pulsatrix ...
+   Error: outdated
+```
+This is in fact **NOT** an error and you can ignore it. You will then be asked if you want to add it anyways and you can confirm with `y`.
+:::
+
+
