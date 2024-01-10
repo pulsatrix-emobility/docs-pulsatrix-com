@@ -44,7 +44,7 @@ const FeatureList = [
         The Solar Surplus Charging feature allows you to charge your electric vehicle with surplus solar energy.
       </>
     ),
-    link: '/docs/ws-rest-api',
+    link: '/docs/surplus-charging',
   },
 ];
 
