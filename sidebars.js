@@ -4,7 +4,22 @@ const sidebars = {
     'intro',
     {
       type: 'category',
-      label: 'User API',
+      label: 'Solar Surplus Charging',
+      link: {
+        type: 'doc',
+        id: 'surplus-charging/index',
+      },
+      items: [
+          {
+            type: 'doc',
+            id:'surplus-charging/evcc',
+            label: 'evcc.io',
+          },
+      ]
+    },
+    {
+      type: 'category',
+      label: 'API',
       link: {
         type: 'doc',
         id: 'user-api/index',

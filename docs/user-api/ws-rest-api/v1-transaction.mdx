@@ -30,6 +30,16 @@ The `transaction` endpoint returns transactional information about the charging 
 - `meterStop` - *float* - Value of the energyMeter at the end of the session.
 
 - `vehicleStatus` - *String* - IEC 61851 Status of the EV
+  - `A` - Disconnected
+  - `B` - Connected
+  - `C` - Charge request
+  - `D` - Charge & ventilation request
+  - `E` - Short circuit
+  - `F` - Error
+  - `S` - Startup / unknown
+  - `R` - Diode fail
+
+- `chargeControllerStatus` - *String* - IEC 61851 Status of the SECC
   - `A1` - Standby
   - `B1` - Vehicle detected
   - `C1` - Charge request
@@ -41,17 +51,7 @@ The `transaction` endpoint returns transactional information about the charging 
   - `B2` - Charging offered
   - `C2`- Charging
   - `D2` - Charging + venting
-
-- `chargeControllerStatus` - *String* - IEC 61851 Status of the SECC
-  - `A` - Disconnected
-  - `B` - Connected
-  - `C` - Charge request
-  - `D` - Charge & ventilation request
-  - `E` - Short circuit
-  - `F` - Error
-  - `S` - Startup / unknown
-  - `R` - Diode fail
-
+  
 - `usedPhasesSession` *String* - Phases used for charging the EV.
 
 - `startReason` - *String* - Reason for starting the charging session.
@@ -118,8 +118,8 @@ The `transaction` endpoint returns transactional information about the charging 
       "endedTime": 1699359816,
       "meterStart": 0.302999973,
       "meterStop": 0.302999973,
-      "vehicleStatus": "A1",
-      "chargeControllerStatus": "A",
+      "vehicleStatus": "A",
+      "chargeControllerStatus": "A1",
       "usedPhasesSession": "111",
       "startReason": "Authorized",
       "stopReason": "DeAuthorized",
@@ -138,8 +138,8 @@ The `transaction` endpoint returns transactional information about the charging 
         "endedTime": 1699359816,
         "meterStart": 0.302999973,
         "meterStop": 0.302999973,
-        "vehicleStatus": "A1",
-        "chargeControllerStatus": "A",
+        "vehicleStatus": "A",
+        "chargeControllerStatus": "A1",
         "usedPhasesSession": "111",
         "startReason": "Authorized",
         "stopReason": "DeAuthorized",
