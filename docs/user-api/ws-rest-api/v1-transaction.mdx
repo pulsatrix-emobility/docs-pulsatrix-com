@@ -107,6 +107,15 @@ The `transaction` endpoint returns transactional information about the charging 
   - `Team` - The team leader is in control of the charging session.
   - `Unmanaged` - The charging session is not managed by any source.
 
+- `onePhaseLimitActive` - *boolean* - Whether the one phase limit is active.
+
+- `phaseLimitSourceName` - *String* - Name of the source currently in control of the phase limit.
+  - `API` - The WebSocket or RESTful api is in control of the phase limit.
+
+- `phaseRotationActive` - *boolean* - Whether the phase rotation is active.
+
+- `phaseRotationSourceName` - *String* - Name of the source currently in control of the phase rotation.
+  - `API` - The WebSocket or RESTful api is in control of the phase rotation.
 ## Example Output
 
 <Tabs>
@@ -123,7 +132,12 @@ The `transaction` endpoint returns transactional information about the charging 
       "usedPhasesSession": "111",
       "startReason": "Authorized",
       "stopReason": "DeAuthorized",
-      "allocationSourceName": "OCPP Profile"
+      "allocationSourceName": "OCPP Profile",
+      "onePhaseLimitActive": false,
+      "phaseLimitSourceName": "API",
+      "phaseRotationActive": false,
+      "phaseRotationSourceName": "API"
+
     }
     `````
   </TabItem>
@@ -143,7 +157,11 @@ The `transaction` endpoint returns transactional information about the charging 
         "usedPhasesSession": "111",
         "startReason": "Authorized",
         "stopReason": "DeAuthorized",
-        "allocationSourceName": "OCPP Profile"
+        "allocationSourceName": "OCPP Profile",
+        "onePhaseLimitActive": false,
+        "phaseLimitSourceName": "API",
+        "phaseRotationActive": false,
+        "phaseRotationSourceName": "API"
       }
     }
     ```

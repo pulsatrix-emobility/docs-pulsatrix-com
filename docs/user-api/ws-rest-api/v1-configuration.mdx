@@ -18,7 +18,8 @@ The `/charging` endpoint provides momentary information about the current chargi
 - `sessionId` - *string* - UUID of the charging current session
 - `effectiveAmperageLimit` - *int* - Absolute amperage limit of the EVSE
 - `hasPhaseRotation` - *bool* - Indicates if the EVSE has phases rotated by 120°
-- `hasPhaseStShutoff` - *bool* - Indicates if the EVSE has a phase shutoff enabled
+- `hasPhaseStShutoff` - *bool* - Indicates if the EVSE has a phase shutoff relay
+- `hasPhaseSTTurnon` - *bool* - Indicates if the EVSE has a phase turn on relay
 
 ## Example Output
 
@@ -31,7 +32,8 @@ The `/charging` endpoint provides momentary information about the current chargi
       "sessionId":"0b8cd3b0-5412-e569-9a39-ed3d1c2fa956",
       "effectiveAmperageLimit":32,
       "hasPhaseRotation":false,
-      "hasPhaseShutoff":false
+      "hasPhaseShutoff":false,
+      "hasPhaseSTTurnon": true
     }
     ```
   </TabItem>
@@ -46,7 +48,8 @@ The `/charging` endpoint provides momentary information about the current chargi
         "sessionId":"0b8cd3b0-5412-e569-9a39-ed3d1c2fa956",
         "effectiveAmperageLimit":32,
         "hasPhaseRotation":false,
-        "hasPhaseShutoff":false
+        "hasPhaseShutoff":false,
+        "hasPhaseSTTurnon": true
       }
     } 
     ```
