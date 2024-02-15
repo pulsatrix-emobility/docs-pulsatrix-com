@@ -2,6 +2,7 @@
 const sidebars = {
   pxDocs: [
     'intro',
+    'app',
     {
       type: 'category',
       label: 'Solar Surplus Charging',
@@ -94,6 +95,11 @@ const sidebars = {
               label: '/v1/limits',
             },
           ],
+        },
+        {
+          type: 'link',
+          label: 'Web API', // The link label
+          href: 'https://api.pulsatrix.net/swagger-ui/index.html', // The external URL
         },
       ],
     },
