@@ -17,10 +17,6 @@ const sidebars = {
           },
       ]
     },
-
-
-
-
     {
       type: 'category',
       label: 'Charging Controller',
@@ -29,6 +25,21 @@ const sidebars = {
         id: 'controller/index',
       },
       items: [
+        {
+          type: 'category',
+          label: 'Solar Surplus Charging',
+          link: {
+            type: 'doc',
+            id: 'controller/surplus-charging/index',
+          },
+          items: [
+              {
+                type: 'doc',
+                id:'controller/surplus-charging/evcc',
+                label: 'evcc.io',
+              },
+          ]
+        },
         {
           type: 'category',
           label: 'REST / Websocket API',
@@ -100,40 +111,16 @@ const sidebars = {
           ]
         },
         {
-          type: 'category',
-          label: 'Solar Surplus Charging',
-          link: {
-            type: 'doc',
-            id: 'controller/surplus-charging/index',
-          },
-          items: [
-              {
-                type: 'doc',
-                id:'controller/surplus-charging/evcc',
-                label: 'evcc.io',
-              },
-          ]
+          type: 'doc',
+          id:'controller/modbus/modbus-server',
+          label: 'Modbus Server',
         },
       ]
     },
-
-
-
-
     {
-      type: 'category',
-      label: 'Backend',
-      link: {
-        type: 'doc',
-        id: 'backend/index',
-      },
-      items: [
-          {
-            type: 'doc',
-            id:'backend/backend-api',
-            label: 'Backend API',
-          },
-      ]
+      type: 'doc',
+      id:'backend/backend-api',
+      label: 'Backend API',
     },
   ]
 };

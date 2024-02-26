@@ -1,0 +1,72 @@
+---
+title: Modbus-TCP Server
+---
+
+# Modbus-TCP
+    - The IP can be found on the 3rd page of the SECC.   
+    - The port is 502.  
+
+
+Currently we support the following registers:
+## Input registers:
+| Address | Value                  | Datatype | Size | Description                              | Example              |
+|---------|------------------------|----------|------|------------------------------------------|----------------------|
+| 0x0     | chargeControllerStatus | char[2]  | 1    | Iec61851 status of the charger           | A1                   |
+| 0x1     | vehicleStatus          | char     | 1    | Iec61851 status of the EV                | A                    |
+| 0x2     | isReadyToCharge        | boolean  | 1    | true if the charger is ready to charge   | true                 | 
+| 0x3     | isConnected            | boolean  | 1    | true if the charger is connected to a EV | true                 |
+| 0x4     | isCharging             | boolean  | 1    | true if a EV is being charged            | true                 | 
+| 0x5     | error                  | boolean  | 1    | true if an error has occurred            | true                 |
+| 0x6     | plugRetentionLock      | boolean  | 1    | true if the plug is locked               | true                 |
+| 0x7     | signaledAmperage       | float32  | 2    | Amperage signaled to the EV              | 16.0                 |
+| 0x9     | availableAmperage      | float32  | 2    |                                          |                      |
+| 0xB     | effectiveAmperageLimit | float32  | 2    | Absolute amperage limit of the charger   | 32.0                 |
+| 0xD     | amperage L1            | float32  | 2    | Current amperage of phase 1              | 14.2                 |
+| 0xF     | amperage L2            | float32  | 2    | Current amperage of phase 2              | 13.9                 |
+| 0x11    | amperage L3            | float32  | 2    | Current amperage of phase 3              | 14.1                 |
+| 0x13    | voltage L1             | float32  | 2    | Voltage of phase 1                       | 230.0                |
+| 0x15    | voltage L2             | float32  | 2    | Voltage of phase 2                       | 230.0                |
+| 0x17    | voltage L3             | float32  | 2    | Voltage of phase 3                       | 230.0                | 
+| 0x19    | gridLastActivePower    | float32  | 2    | Last active power of the EV in W         | 0.0                  |
+| 0x1B    | gridApparentPower      | float32  | 2    | Apparent power of the EV in VA           | 0.0                  | 
+| 0x1D    | gridFrequency          | float32  | 2    | Frequency of the grid in Hz              | 50.0                 |
+| 0x1F    | maxAmpSession          | float32  | 2    | Maximum amperage of the session          | 16.0                 |
+| 0x21    | peakAmperage L1        | float32  | 2    | Peak amperage of phase 1                 | 16.0                 |
+| 0x23    | peakAmperage L2        | float32  | 2    | Peak amperage of phase 2                 | 16.0                 |
+| 0x25    | peakAmperage L3        | float32  | 2    | Peak amperage of phase 3                 | 16.0                 | 
+| 0x27    | peakActivePower        | int16    | 1    | Peak active power of the EV in W         | 15000                |
+| 0x28    | usedPhasesSession L1   | boolean  | 1    | true if phase 1 is currently used        | true                 |
+| 0x29    | usedPhasesSession L2   | boolean  | 1    | true if phase 2 is currently used        | true                 |
+| 0x2A    | usedPhasesSession L3   | boolean  | 1    | true if phase 3 is currently used        | true                 |
+| 0x2B    | sessionEnergy          | float32  | 2    | Energy consumed by the EV in kWh         | 3.2                  |
+| 0x2D    | energyImported         | float32  | 2    | Energy imported from the grid            | 3.2                  |
+| 0x2F    | energyExported         | float32  | 2    | Energy exported to the grid              | 0.0                  |
+| 0x31    | sessionDurationNow     | uint32   | 2    | Duration of the current session in ms    | 360000               | 
+| 0x33    | chargingDuration       | uint32   | 2    | Duration of the current charging in ms   | 360000               |
+| 0x35    | gridAmperage L1        | float32  | 2    | Current grid meter amperage of phase 1   | 14.2                 |
+| 0x37    | gridAmperage L2        | float32  | 2    | Current grid meter amperage of phase 2   | 13.9                 |
+| 0x39    | gridAmperage L3        | float32  | 2    | Current grid meter  amperage of phase 3  | 14.1                 |
+| 0x3B    | gridVoltage L1         | float32  | 2    | Current grid meter voltage of phase 1    | 230.0                |
+| 0x3D    | GridVoltage L2         | float32  | 2    | Current grid meter voltage of phase 2    | 230.0                |
+| 0x3F    | gridVoltage L3         | float32  | 2    | Current grid meter voltage of phase 3    | 230.0                |
+| 0x41    | gridActivePower        | uint32   | 2    | Current grid meter active power          | 0                    |
+| 0x43    | gridApparentPower      | uint32   | 2    | Current grid meter apparent power        | 0                    |
+| 0x45    | gridEnergyImported     | uint32   | 2    | Energy imported from the grid in kWh     | 3.2                  |
+| 0x47    | gridEnergyExported     | uint32   | 2    | Energy exported to the grid in kWh       | 0                    |
+| 0x49    | rcdTripped             | bool     | 1    | true if the RCD has tripped              | false                |
+|         |                        |          |      |                                          |                      |
+| 0x100   | modbusVersion          | char[4]  | 2    | Version of the Modbus endpoint           | "v1.0"               |
+| 0x102   | serialNumber           | char[12] | 6    | Serial number of the charger             | "32465A215924"       |
+| 0x108   | hardwareVersion        | char[32] | 16   | Hardware version of the charger          | "esp32-openEVCC-303" |
+| 0x118   | firmwareVersion        | char[32] | 16   | Firmware version of the charger          | "2.85.0"             |
+
+
+## Holding registers:
+
+| Address | Value         | Datatype | Size | Description                         | Example |
+|---------|---------------|----------|------|-------------------------------------|---------|
+| 0x0     | amperageLimit | float32  | 2    | set/get the maximum amperage in A   | 16.0    |
+| 0x2     | powerLimit    | float32  | 2    | set/get the maximum power in W      | 10      |
+| 0x4     | onePhaseLimit | boolean  | 1    | enable/disable the 3-phase charging | true    |
+| 0x5     | phaseRotation | boolean  | 1    | enable/disable phase rotation       | false   |
+| 0x6     | timeout       | uint16   | 1    | set/get the validity timeout in ms  | 5000    |

@@ -1,17 +1,28 @@
 
-# API
+# Charging Station Controller
 
-The User API supports three different protocols that can be used to communicate with the pulsatrix charging station controller. We provide a RESTful API, a WebSocket API and a MQTT API. While REST and Websocket offer similar endpoints and data types, MQTT uses a message- and topic-based model with some additional data.
+The charging station controller is the main component of each charging station. It is responsible for the charging logic and the communication with the backend. 
 
+## Solar Surplus Charging
+
+Solar surplus charging is a feature that allows the charging station to charge the vehicle with the surplus energy from the solar panels, to avoid feeding the energy back to the grid thus increasing the self-consumption of the solar energy.
+
+This section provides information about the charging station controller related features. The charging station controller is responsible for the charging logic and the comunication with the backend. 
 ## RESTful API
-We provide a high-level [**documentation for the RESTful API**](/docs/ws-rest-api). Additionally, there is an [**OpenAPI/Swagger-based**](/user-api/swagger) documentation available which is suitable for client code generation.
+We provide a high-level [**documentation for the RESTful API**](/docs/rest-ws-api). Additionally, there is an [**OpenAPI/Swagger-based**](/user-api/swagger) documentation available which is suitable for client code generation.
 
 ## WebSocket API
 
-The WebSocket API uses the same DTOs as the RESTful API and is [**documented alongside of it**](/docs/ws-rest-api)
+The WebSocket API uses the same DTOs as the RESTful API and is [**documented alongside of it**](/docs/rest-ws-api)
 
 ## MQTT API
 
 The MQTT API is based on topics and messages. You can find its details [**here**](/docs/mqtt-api)
 
-## Solar surplus charging
+## Modbus
+
+The charging station controller implements a Modbus TCP server to allow the communication with the charging station hardware. The Modbus TCP server is used to read and write the charging station parameters.
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

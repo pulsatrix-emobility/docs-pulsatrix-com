@@ -1,17 +1,8 @@
+# Instructions
 
-# API
+This section provides user guides for both the web and smartphone versions of our application. Each guide includes step-by-step instructions covering key features and functionalities. Whether you're a new user or simply need a refresher, these guides will help you navigate the app.
 
-The User API supports three different protocols that can be used to communicate with the pulsatrix charging station controller. We provide a RESTful API, a WebSocket API and a MQTT API. While REST and Websocket offer similar endpoints and data types, MQTT uses a message- and topic-based model with some additional data.
 
-## RESTful API
-We provide a high-level [**documentation for the RESTful API**](/docs/ws-rest-api). Additionally, there is an [**OpenAPI/Swagger-based**](/user-api/swagger) documentation available which is suitable for client code generation.
+import DocCardList from '@theme/DocCardList';
 
-## WebSocket API
-
-The WebSocket API uses the same DTOs as the RESTful API and is [**documented alongside of it**](/docs/ws-rest-api)
-
-## MQTT API
-
-The MQTT API is based on topics and messages. You can find its details [**here**](/docs/mqtt-api)
-
-## Solar surplus charging
+<DocCardList />
