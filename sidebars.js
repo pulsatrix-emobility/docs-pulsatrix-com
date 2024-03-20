@@ -115,11 +115,12 @@ const sidebars = {
               },
           ]
         },
+        /*
         {
           type: 'doc',
           id:'controller/modbus/modbus-server',
           label: 'Modbus Server',
-        },
+        },*/
       ]
     },
     {
