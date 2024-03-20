@@ -5,23 +5,12 @@ import Link from '@docusaurus/Link';
 
 
 const FeatureList = [
-  /*{
-    title: 'Docs',
-    Svg: require('@site/static/img/docs.svg').default,
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-    link: '/docs/intro',
-  },*/
   {
     title: 'Instructions',
     Svg: require('@site/static/img/instructions.svg').default,
     description: (
       <>
-        Different guides and instructions with comprehensive information about the pulsatrix charging point.
+        Instructions with comprehensive information about the pulsatrix charging point.
       </>
     ),
     link: 'docs/instructions',
@@ -51,15 +40,18 @@ const FeatureList = [
 function Feature({Svg, title, description, link}) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Link to={link}>
-          <Svg className={styles.featureSvg} role="img" />
-        </Link>
-      </div>
-      <div className="text--center padding-horiz--md">
-        <Heading as="h3">{title}</Heading>
-        <p>{description}</p>
-        <Link to={link} className="button button--secondary myButton">Learn More</Link>
+      <div className="myBorder">
+      <a href={link}>
+          <div className="text--center">
+          <Link to={link}>
+            <Svg className={styles.featureSvg} role="img" />
+          </Link>
+        </div>
+        <div className="text--center padding-horiz--md">
+          <Heading as="h3">{title}</Heading>
+          <p>{description}</p>
+        </div>
+        </a>
       </div>
     </div>
   );

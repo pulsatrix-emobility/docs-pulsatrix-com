@@ -73,11 +73,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: 'dark',
+        disableSwitch: true,
+      },
       navbar: {
-        title: ' Home',
+        title: '',
         logo: {
           alt: 'pulsatrix logo',
-          src: 'img/jelly.png',
+          src: 'img/px-logo-docu1.png',
         },
         items: [
           {
@@ -104,13 +108,6 @@ const config = {
                   <img src="https://www.pulsatrix.de/wp-content/uploads/2021/10/pulsatrix_450.png" alt="Deploys by Netlify" height="45" />
                 </a>
                 <p>
-                pulsatrix gmbh<br>
-                Bebelsbergstraße 31<br>
-                D-71088 Holzgerlingen<br>
-                <br>
-                hallo@pulsatrix.de<br>
-                +49 7031 416130<br>
-                <br>
                 Ein Unternehmen der <a href="https://www.levigo.de">levigo gruppe</a>.</p>
               `,
               },
@@ -129,10 +126,6 @@ const config = {
               },
               {
                 html: `
-                <br><br><br>
-                <a href="https://www.pulsatrix.de" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
-                  <img src="https://www.pulsatrix.de/wp-content/uploads/2021/10/BEM_trans.png" alt="Deploys by Netlify" height="60" />
-                </a>
                 <p><a href="https://www.bem-ev.de/">Member of the Bundesverband eMobilität e.V.</a></p>                
               `,
               },
@@ -154,7 +147,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} pulsatrix gmbh, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} pulsatrix GmbH`,
       },
       prism: {
         theme: prismThemes.github,

@@ -12,6 +12,11 @@ const sidebars = {
       items: [
           {
             type: 'doc',
+            id:'instructions/first-steps',
+            label: 'First Steps',
+          },
+          {
+            type: 'doc',
             id:'instructions/admin-guide',
             label: 'Admin Guide',
           },
