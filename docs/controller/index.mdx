@@ -1,0 +1,28 @@
+
+# Charging Station Controller
+
+The charging station controller is the main component of each charging station. It is responsible for the charging logic and the communication with the backend. 
+
+## Solar Surplus Charging
+
+Solar surplus charging is a feature that allows the charging station to charge the vehicle with the surplus energy from the solar panels, to avoid feeding the energy back to the grid thus increasing the self-consumption of the solar energy.
+
+This section provides information about the charging station controller related features. The charging station controller is responsible for the charging logic and the comunication with the backend. 
+## RESTful API
+We provide a high-level [**documentation for the RESTful API**](/docs/rest-ws-api). Additionally, there is an [**OpenAPI/Swagger-based**](/user-api/swagger) documentation available which is suitable for client code generation.
+
+## WebSocket API
+
+The WebSocket API uses the same DTOs as the RESTful API and is [**documented alongside of it**](/docs/rest-ws-api)
+
+## MQTT API
+
+The MQTT API is based on topics and messages. You can find its details [**here**](/docs/mqtt-api)
+
+## Modbus
+
+The charging station controller implements a Modbus TCP server to allow the communication with the charging station hardware. The Modbus TCP server is used to read and write the charging station parameters.
+
+import DocCardList from '@theme/DocCardList';
+
+<DocCardList />

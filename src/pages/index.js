@@ -1,22 +1,25 @@
-import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
-
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-      </div>
-    </header>
+    <header class="px-header-container px-header-background">
+    <div class="container">
+        <div class="row">
+            <div class="col col--12">
+                <div class="row" style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                    <div class="col col--8">
+                        <h1 class="px-header">pulsatrix e-mobility</h1>
+                        <h2 class="px-subheader">Documentation for the pulsatrix e-mobility components</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
   );
 }
 
@@ -28,6 +31,7 @@ export default function Home() {
       description="pulsatrix e-mobility documentation site">
       <HomepageHeader />
       <main>
+      <div class="seperator"></div>
         <HomepageFeatures />
       </main>
     </Layout>

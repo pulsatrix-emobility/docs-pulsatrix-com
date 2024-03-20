@@ -11,25 +11,79 @@
   --ifm-color-primary-light: #47fad9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --ifm-text-color: #000000;
-  
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #2cb5a3;
-  --ifm-color-primary-dark: #04ba9c;
+  --ifm-color-primary:#2cb5a3;
+  --ifm-color-backgrund: rgba(26, 225, 198, 0.465);
+  --ifm-color-primary-dark: rgba(33, 133, 120, 0.422);
   --ifm-color-primary-light: #47fad9;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
   --ifm-text-color: #ffffff;
 }
 
-.button--secondary.myButton {
-  background-color: transparent;
-  border: 1px solid #8F8F8F;
-  color: var(--ifm-text-color);
-  transition: border-color 0.3s ease;
+.px-header {
+  margin-left: 10px;
+  margin-top: 100px;
+  color: white;
+  font-size: 5rem;
+  text-shadow: 0 0 10px #2cb5a3, 0 0 13px #2cb5a3; /* adjust as needed */
 }
 
-.button--secondary.myButton:hover {
-  border-color: var(--ifm-color-primary);
+.px-subheader {
+  margin-left: 20px;
+  text-align:left;
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 0 0 5px #2cb5a3; /* adjust as needed */
+}
+
+.px-header-container {
+  align-items: flex-start;
+  vertical-align: top;
+  position: relative;
+  overflow: hidden;
+  width: 100%; 
+  height: 400px;
+  background-blend-mode:luminosity;
+  background-color: var(--ifm-color-backgrund);
+  position: relative;
+}
+
+.px-header-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/img/jelly.png');
+  background-repeat: no-repeat;
+  background-size:auto 160%;
+  background-position: 90% 25%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+
+.myBorder {
+  border: 2px solid var(--ifm-color-backgrund); /* Change the color as needed */
+  border-radius: 25px;
+  margin: 20px;
+  transition: box-shadow 0.2s ease; /* This will animate the color change */
+}
+
+.myBorder:hover {
+  box-shadow: 0 0 10px var(--ifm-color-primary), 0 0 13px var(--ifm-color-primary); /* adjust as needed */
+}
+.myBorder a {
+  color: white;
+  text-decoration: none;
+}
+.seperator {
+  margin: 0 0 20px 0;
+  padding: 0;
+  border-bottom: 2px solid var(--ifm-color-primary);
+  box-shadow: 0 0 10px var(--ifm-color-primary), 0 0 13px var(--ifm-color-primary); /* adjust as needed */
 }

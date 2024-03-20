@@ -2,108 +2,132 @@
 const sidebars = {
   pxDocs: [
     'intro',
-    'app',
     {
       type: 'category',
-      label: 'Solar Surplus Charging',
+      label: 'Instructions',
       link: {
         type: 'doc',
-        id: 'surplus-charging/index',
+        id: 'instructions/index',
       },
       items: [
           {
             type: 'doc',
-            id:'surplus-charging/evcc',
-            label: 'evcc.io',
+            id:'instructions/first-steps',
+            label: 'First Steps',
+          },
+          {
+            type: 'doc',
+            id:'instructions/admin-guide',
+            label: 'Admin Guide',
           },
       ]
     },
     {
       type: 'category',
-      label: 'API',
+      label: 'Charging Controller',
       link: {
         type: 'doc',
-        id: 'user-api/index',
+        id: 'controller/index',
       },
       items: [
         {
           type: 'category',
-          label: 'MQTT API',
+          label: 'Solar Surplus Charging',
           link: {
             type: 'doc',
-            id: 'user-api/mqtt-api/index',
+            id: 'controller/surplus-charging/index',
           },
           items: [
-            {
-              type: 'doc',
-              id:'user-api/mqtt-api/chargingPoint-status',
-              label: '/chargingPoint/status',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/mqtt-api/charging-status',
-              label: '/charging/status',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/mqtt-api/tx-status',
-              label: '/tx/status',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/mqtt-api/meter-fiscal',
-              label: '/meter/fiscal',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/mqtt-api/meter-grid',
-              label: '/meter/grid',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/mqtt-api/limits',
-              label: 'Limits',
-            },
-          ],
+              {
+                type: 'doc',
+                id:'controller/surplus-charging/evcc',
+                label: 'evcc.io',
+              },
+          ]
         },
         {
           type: 'category',
           label: 'REST / Websocket API',
           link: {
             type: 'doc',
-            id: 'user-api/ws-rest-api/index',
+            id: 'controller/rest-ws-api/index',
           },
           items: [
-            {
-              type: 'doc',
-              id: 'user-api/ws-rest-api/v1-configuration',
-              label: '/v1/configuration',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/ws-rest-api/v1-transaction',
-              label: '/v1/transaction',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/ws-rest-api/v1-charging',
-              label: '/v1/charging',
-            },
-            {
-              type: 'doc',
-              id: 'user-api/ws-rest-api/v1-limits',
-              label: '/v1/limits',
-            },
-          ],
+              {
+                type: 'doc',
+                id:'controller/rest-ws-api/v1-configuration',
+                label: '/v1/configuration',
+              },
+              {
+                type: 'doc',
+                id:'controller/rest-ws-api/v1-transaction',
+                label: '/v1/transaction',
+              },
+              {
+                type: 'doc',
+                id:'controller/rest-ws-api/v1-charging',
+                label: '/v1/charging',
+              },
+              {
+                type: 'doc',
+                id:'controller/rest-ws-api/v1-limits',
+                label: '/v1/limits',
+              },
+          ]
         },
         {
-          type: 'link',
-          label: 'Web API', // The link label
-          href: 'https://api.pulsatrix.net/swagger-ui/index.html', // The external URL
+          type: 'category',
+          label: 'MQTT API',
+          link: {
+            type: 'doc',
+            id: 'controller/mqtt-api/index',
+          },
+          items: [
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/chargingPoint-status',
+                label: '/chargingPoint/status',
+              },
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/charging-status',
+                label: '/charging/status',
+              },
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/tx-status',
+                label: '/tx/status',
+              },
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/meter-fiscal',
+                label: '/meter/fiscal',
+              },
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/meter-grid',
+                label: '/meter/grid',
+              },
+              {
+                type: 'doc',
+                id:'controller/mqtt-api/limits',
+                label: 'Limits',
+              },
+          ]
         },
-      ],
+        {
+          type: 'doc',
+          id:'controller/modbus/modbus-server',
+          label: 'Modbus Server',
+        },
+      ]
     },
-  ],
+    {
+      type: 'doc',
+      id:'backend/backend-api',
+      label: 'Backend API',
+    },
+  ]
 };
 
 export default sidebars;
