@@ -10,7 +10,7 @@ const FeatureList = [
     Svg: require('@site/static/img/instructions.svg').default,
     description: (
       <>
-        Instructions with comprehensive information about the pulsatrix charging point.
+        Manuals for the pulsatrix CSMS and the pulsatrix charging points.
       </>
     ),
     link: 'docs/instructions',
@@ -20,7 +20,7 @@ const FeatureList = [
     Svg: require('@site/static/img/controller.svg').default,
     description: (
       <>
-        Documentation about the controller related features, functionalities and APIs.
+        Documentation about the charging controller functionalities and APIs.
       </>
     ),
     link: '/docs/controller',
@@ -30,7 +30,7 @@ const FeatureList = [
     Svg: require('@site/static/img/backend.svg').default,
     description: (
       <>
-        Backend API documentation for the pulsatrix charging point.
+        Backend API documentation for the pulsatrix CSMS.
       </>
     ),
     link: '/docs/backend/backend-api',
