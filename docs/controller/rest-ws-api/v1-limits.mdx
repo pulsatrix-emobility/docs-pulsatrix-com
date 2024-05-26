@@ -55,7 +55,7 @@ situation where the limit set by the API is ignored because it is higher than th
   </TabItem>
 </Tabs>
 
-## <span style={{ display: 'flex', alignItems: 'center' }}>/v1/limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#FCA130', color: 'white', padding: '5px', borderRadius: '5px', fontSize: '23px' }}>SET</span></span>
+## <span style={{ display: 'flex', alignItems: 'center' }}>/v1/limits <span style={{ marginLeft: '10px',marginTop: '5px', backgroundColor: '#FCA130', color: 'white', padding: '5px', borderRadius: '5px', fontSize: '23px' }}>PUT</span></span>
 
 
   The **SET** endpoint for the limits looks different depending on the protocol used, the REST endpoint allows you to set all values at once, while the WebSocket endpoint only allows you to set one value at a time.
@@ -70,7 +70,7 @@ situation where the limit set by the API is ignored because it is higher than th
       "setAmperageLimit": NaN,
       "sePowerLimit": NaN,
       "setTimeout": 300000,
-      "setOnePhaseLimitActive": true,
+      "setOnePhaseLimit": true,
       "setPhaseRotation": true
     }
     ```
@@ -79,7 +79,7 @@ situation where the limit set by the API is ignored because it is higher than th
     - `setCurrentLimit` - *float32* - Sets the amperage limit in amps
     - `setPowerLimit` - *int* - Sets the power limit in watts
     - `setTimeout` - *int* - Sets the data validity timeout
-    - `setOnePhaseLimitActive` - *bool* - Enables/Disables charging on one phase
+    - `setOnePhaseLimit` - *bool* - Enables/Disables charging on one phase
     - `setPhaseRotation` - *bool* - Enables/Disables phase rotation
 
     With WebSocket it is only possible to set one value at a time.
