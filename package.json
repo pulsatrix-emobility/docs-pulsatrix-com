@@ -37,7 +37,8 @@
     "tough-cookie": "5.0.0",
     "braces": "3.0.3",
     "p-map": "7.0.2",
-    "del": "7.1.0"
+    "del": "7.1.0",
+    "webpack": "5.94.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
