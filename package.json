@@ -33,7 +33,9 @@
     "minimatch": "10.0.1",
     "nth-check": "2.1.1",
     "semver-regex": "4.0.5",
-    "path-to-regexp": "6.3.0"
+    "path-to-regexp": "0.1.10",
+    "tough-cookie": "5.0.0",
+    "braces": "3.0.3"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
