@@ -30,7 +30,7 @@
     "shell-quote": "1.7.3",
     "lodash.template": "4.5.0",
     "http-cache-semantics": "4.1.1",
-    "minimatch": "3.0.5"
+    "minimatch": "10.0.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
