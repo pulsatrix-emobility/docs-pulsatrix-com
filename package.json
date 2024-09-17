@@ -33,7 +33,7 @@
     "minimatch": "10.0.1",
     "nth-check": "2.1.1",
     "semver-regex": "4.0.5",
-    "path-to-regexp": "8.1.0"
+    "path-to-regexp": "6.3.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.5.2",
