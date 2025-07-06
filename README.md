@@ -1,4 +1,4 @@
-[![Generic badge](https://img.shields.io/badge/SBOM-blue)](https://github.com/pulsatrix-emobility/docs-pulatrix-com/network/dependencies)
+[![Generic badge](https://img.shields.io/badge/SBOM-blue)](https://github.com/pulsatrix-emobility/docs-pulsatrix-com/network/dependencies)
 
 # Website
 
