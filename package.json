@@ -51,7 +51,7 @@
     "path-to-regexp": "0.1.10"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "3.5.2",
+    "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/types": "3.5.2"
   },
   "browserslist": {
