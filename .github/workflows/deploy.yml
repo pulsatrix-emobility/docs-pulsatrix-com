@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Update yarn dependencies
-        run: yarn
-
       - name: Refresh browserlist
         run: npx update-browserslist-db@latest
 
