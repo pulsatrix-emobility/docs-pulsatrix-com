@@ -4,7 +4,7 @@ const sidebars = {
     'intro',
     {
       type: 'category',
-      label: 'Instructions',
+      label: 'Guides',
       link: {
         type: 'doc',
         id: 'instructions/index',
