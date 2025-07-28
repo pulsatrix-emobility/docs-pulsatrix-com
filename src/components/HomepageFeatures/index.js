@@ -6,7 +6,7 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Instructions',
+    title: 'Guides',
     Svg: require('@site/static/img/instructions.svg').default,
     description: (
       <>
