@@ -10,3 +10,8 @@ updates:
       docusaurus:
         patterrns:
         - "@docusaurus*"
+      react:
+        patterns:
+        - "@mdx-js/react"
+        - "react*"
+        - "prism-react-renderer"
