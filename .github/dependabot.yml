@@ -6,3 +6,7 @@ updates:
       interval: "weekly"
     commit-message:
       prefix: "fix(DEV-1195):"
+    groups:
+      docusaurus:
+        patterrns:
+        - "@docusaurus*"
