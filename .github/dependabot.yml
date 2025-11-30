@@ -8,7 +8,7 @@ updates:
       prefix: "fix(DEV-1195):"
     groups:
       docusaurus:
-        patterrns:
+        patterns:
         - "@docusaurus*"
       react:
         patterns:
