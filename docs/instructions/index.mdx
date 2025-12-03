@@ -8,34 +8,34 @@ import DocCardList from '@theme/DocCardList';
 <DocCardList />
 
 ## Reference - LED colors and charging states
-### Main LED stripe
+### Main LED
 - `Green`
   - *Static and/or slowly pulsing*
     - Charger available
   - *Blinking*
     - Authorization in progress/Authorization successful
 - `Blue`
-  - *Static*
+  - *Static*, darker blue
     - Connected
-  - *Flowing*
+  - *Static* (lighter bulue) or *Flowing*
     - Charging
-  - *Pulsing*
+  - *Static* or *Pulsing*
     - Paused/Stopped
 - `Red`
   - *Static*
     - Not available (firmware update, RCD test, error)
-  - *Pulsing*
+  - *Static* or *Pulsing*
     - Charging error
   - *Blinking*
     - Authorization error
 - `Pink`
-  - *Pulsing*
+  - *Static* or *Pulsing*
     - Waiting for authorization
 - `White`
   - *Outwards Flowing*
     - Authorization in progress
 - `Turqoise`
-  - *Flowing*
+  - *Static* or *Flowing*
     - Lingering
 - `Yellow`/`Orange`
   - *Static*
