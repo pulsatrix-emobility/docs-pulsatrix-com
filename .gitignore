@@ -19,3 +19,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 static/UserAPI-random-tables.md
+
+# IDE
+.idea
+
+# Claude Code
+.claude/settings.local.json
