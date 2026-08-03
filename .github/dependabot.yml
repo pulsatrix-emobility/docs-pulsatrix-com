@@ -22,3 +22,4 @@ updates:
       - dependency-name: "@babel/core"
       - dependency-name: "http-proxy-middleware"
       - dependency-name: "joi"
+      - dependency-name: "uuid"
