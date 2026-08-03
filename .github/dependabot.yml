@@ -15,3 +15,10 @@ updates:
         - "@mdx-js/react"
         - "react*"
         - "prism-react-renderer"
+    ignore:
+      # Transitive Docusaurus/redocusaurus-Deps, die Security-Fixes blockieren,
+      # solange @docusaurus/core an der alten Version haengt. Siehe CLAUDE.md.
+      - dependency-name: "serialize-javascript"
+      - dependency-name: "@babel/core"
+      - dependency-name: "http-proxy-middleware"
+      - dependency-name: "joi"
