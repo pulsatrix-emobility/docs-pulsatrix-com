@@ -1,0 +1,18 @@
+name: PR Compliance
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+# Both called workflows read the checkout and post nothing back to the PR.
+permissions:
+  contents: read
+
+jobs:
+  sha-pin-check:
+    name: Supply Chain Integrity Check
+    uses: pulsatrix-emobility/.github/.github/workflows/sha-pin-check.yml@main
+
+  secret-scan:
+    name: Secret Scanning
+    uses: pulsatrix-emobility/.github/.github/workflows/secret-scan.yml@main
