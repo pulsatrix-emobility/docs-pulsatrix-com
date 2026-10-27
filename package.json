@@ -41,5 +41,11 @@
   },
   "engines": {
     "node": ">=18.0"
+  },
+  "overrides": {
+    "joi": "^17.13.8",
+    "qs": "^6.16.0",
+    "@babel/core": "^7.29.6",
+    "http-proxy-middleware": "^2.0.10"
   }
 }
