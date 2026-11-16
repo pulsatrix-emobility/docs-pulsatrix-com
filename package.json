@@ -43,9 +43,10 @@
     "node": ">=18.0"
   },
   "overrides": {
-    "joi": "^17.13.8",
+    "joi": "^17.13.9",
     "qs": "^6.16.0",
     "@babel/core": "^7.29.6",
-    "http-proxy-middleware": "^2.0.10"
+    "http-proxy-middleware": "^2.0.10",
+    "follow-redirects": "^1.16.3"
   }
 }
